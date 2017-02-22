@@ -1,0 +1,88 @@
+\name{diagnose}
+\alias{diagnose}
+\alias{diagnose.PBNLpostsample}
+\title{Diagnostics for the MCMC output in the PB and NL models.}
+\usage{
+  diagnose(obj, ...)
+
+  \method{diagnose}{PBNLpostsample} (obj, true.par = NULL,
+    from = NULL, to = NULL, autocor.max = 0.2,
+    default.thin = 50, xlim.density = c(-4, 4),
+    ylim.density = NULL, plot = TRUE, predictive = FALSE,
+    save = TRUE, ...)
+}
+\arguments{
+  \item{obj}{an object of class \code{postsample}:
+  posterior sample, as produced by
+  \code{\link{posteriorMCMC.pb}} or
+  \code{\link{posteriorMCMC.nl}}}
+
+  \item{true.par}{The true parameter. If \code{NULL}, it is
+  considered as unknown.}
+
+  \item{autocor.max}{The maximum accepted auto-correlation
+  for two successive parameters in the thinned sample.}
+
+  \item{default.thin}{The default thinning interval if the
+  above condition cannot be satisfied.}
+
+  \item{predictive}{Logical. Should the predictive density
+  be plotted ?}
+
+  \item{xlim.density}{The \code{xlim} interval for the
+  density plots, on the transformed scale.}
+
+  \item{ylim.density}{the \code{ylim} intervals for the
+  density plots.}
+
+  \item{plot}{Logical. Should plots be issued ?}
+
+  \item{save}{Logical: should the result be saved ? Only
+  used if the posterior sample has been saved itself
+  (\emph{i.e.} if it contains \code{save=TRUE} in its
+  arguments list)}
+
+  \item{...}{Additional parameters to be passed to the
+  functions \code{\link{posterior.predictive.pb}} or
+  \code{\link{posterior.predictive.nl}}.}
+
+  \item{from}{Integer or \code{NULL}. If \code{NULL}, the
+  default value is used. Otherwise, should be greater than
+  \code{post.sample$Nbin}. Indicates the index where the
+  averaging process should start. Default to
+  \code{post.sample$Nbin +1}}
+
+  \item{to}{Integer or \code{NULL}. If \code{NULL}, the
+  default value is used. Otherwise, must be lower than
+  \code{Nsim+1}. Indicates where the averaging process
+  should stop. Default to \code{post.sample$Nsim}.}
+}
+\value{
+  A list made of \describe{ \item{predictive}{The posterior
+  predictive, or \code{0} if \code{predictive=FALSE} }
+  \item{effective.size}{the effective sample size of each
+  component} \item{heidelTest}{The first part of the
+  Heidelberger and Welch test (stationarity test). The
+  first row indicates \dQuote{success} (1) or rejection(0),
+  the second line shows the number of iterations to be
+  discarded, the third line is the p-value of the test
+  statistic.} \item{gewekeTest}{The test statistics from
+  the Geweke stationarity test.} \item{gewekeScore}{The
+  p-values for the above test statistics} \item{thin}{The
+  thinning interval retained} \item{correl.max.thin}{The
+  maximum auto-correlation for a lag equal to \code{thin} }
+  \item{linked.est.mean}{The posterior mean of the
+  transformed parameter (on the real line)}
+  \item{linked.est.sd}{The standard deviation of the
+  transformed parameters} \item{est.mean}{The posterior
+  mean of the original parameters, as they appears in the
+  expression of the likelihood} \item{sample.sd}{the
+  posterior standard deviation of the original parameters}
+  }
+}
+\description{
+  The method issues several convergence diagnostics, in the
+  particular case when the PB or the NL model is used. The
+  code may be easily modified for other angular models.
+}
+

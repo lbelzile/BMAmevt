@@ -1,0 +1,25 @@
+\docType{data}
+\name{frechetdat}
+\alias{frechetdat}
+\title{Multivariate data set with margins following unit Frechet
+distribution.}
+\format{A \eqn{601*5} - matrix:}
+\description{
+  Five-variate dataset which margins follow unit-Frechet
+  distributions, obtained from \code{\link{winterdat}} by
+  probability integral transform. Marginal estimation was
+  performed by maximum likelihood estimation of a
+  Generalized Pareto distribution over marginal thresholds
+  corresponding to \eqn{0.7} quantiles, following Cooley
+  \emph{et.al.} (see reference below). The \dQuote{non
+  extreme} part of the marginal distributions was
+  approximated by the empirical distribution function.
+}
+\references{
+  COOLEY, D., DAVIS , R. and NAVEAU , P. (2010). The
+  pairwise beta distribution: A flexible parametric
+  multivariate model for extremes. \emph{Journal of
+  Multivariate Analysis 101, 2103-2117}.
+}
+\keyword{datasets}
+

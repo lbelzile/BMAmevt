@@ -1,0 +1,90 @@
+\name{MCpriorIntFun}
+\alias{MCpriorIntFun}
+\title{Generic Monte-Carlo integration of a function under the prior distribution}
+\usage{
+  MCpriorIntFun(Nsim = 200, prior, Hpar, dimData,
+    FUN = function(par, ...) {     as.vector(par) },
+    store = TRUE,
+    show.progress = floor(seq(1, Nsim, length.out = 20)),
+    Nsim.min = Nsim, precision = 0, ...)
+}
+\arguments{
+  \item{Nsim}{Maximum number of iterations}
+
+  \item{dimData}{The dimension of the model's \emph{sample}
+  space, on which the parameter's dimension may depend.
+  Passed to \code{prior} inside \code{MCintegrateFun}}
+
+  \item{FUN}{A function to be integrated. It may return a
+  vector or an array.}
+
+  \item{store}{Should the successive evaluations of
+  \code{FUN} be stored ?}
+
+  \item{show.progress}{same as in
+  \code{\link{posteriorMCMC}}}
+
+  \item{Nsim.min}{The minimum number of iterations to be
+  performed.}
+
+  \item{precision}{The desired relative precision
+  \eqn{\epsilon}. See \bold{Details} below.}
+
+  \item{...}{Additional arguments to be passed to
+  \code{FUN}.}
+
+  \item{prior}{The prior distribution: of type \cr
+  \code{function(type=c("r","d"), n ,par, Hpar, log,
+  dimData )}, where \code{dimData} is the dimension of the
+  sample space (\emph{e.g.}, for the two-dimensional
+  simplex (triangle), \code{dimData=3}. Should return
+  either a matrix with \code{n} rows containing a random
+  parameter sample generated under the prior (if \code{type
+  == "d"}), or the density of the parameter \code{par} (the
+  logarithm of the density if \code{log==TRUE}. See
+  \code{\link{prior.pb}} and \code{\link{prior.nl}} for
+  templates.}
+
+  \item{Hpar}{A list containing Hyper-parameters to be
+  passed to \code{prior}.}
+}
+\value{
+  A list made of \itemize{ \item \code{stored.vals} : A
+  matrix with \code{nsim} rows and \code{length(FUN(par))}
+  columns. \item \code{elapsed} : The time elapsed during
+  the computation. \item \code{nsim} : The number of
+  iterations performed \item \code{emp.mean} : The desired
+  integral estimate: the empirical mean. \item
+  \code{emp.stdev} : The empirical standard deviation of
+  the sample. \item \code{est.error} : The estimated
+  standard deviation of the estimate (\emph{i.e.}
+  \eqn{emp.stdev/\sqrt(nsim)}). \item \code{not.finite} :
+  The number of non-finite values obtained (and discarded)
+  when evaluating \code{FUN(par,...)} }
+}
+\description{
+  Simple Monte-Carlo sampler approximating the integral of
+  \code{FUN} with respect to the prior distribution.
+}
+\details{
+  The algorithm exits after \eqn{n} iterations, based on
+  the following stopping rule : \eqn{n} is the minimum
+  number of iteration, greater than \code{Nsim.min}, such
+  that the relative error is less than the specified
+  \code{precision}. \deqn{ max (est.esterr(n)/
+  |est.mean(n)| ) \le \epsilon ,} where \eqn{est.mean(n)}
+  is the estimated mean of \code{FUN} at time \eqn{n},
+  \eqn{est.err(n)} is the estimated standard deviation of
+  the estimate: \eqn{est.err(n) =
+  \sqrt{est.var(n)/(nsim-1)} }. The empirical variance is
+  computed component-wise and the maximum over the
+  parameters' components is considered.
+
+  The algorithm exits in any case after \code{Nsim}
+  iterations, if the above condition is not fulfilled
+  before this time.
+}
+\author{
+  Anne Sabourin
+}
+

@@ -1,0 +1,14 @@
+\docType{data}
+\name{pb.MCpar}
+\alias{pb.MCpar}
+\title{Default MC MC tuning parameter for the  Pairwise Beta model.}
+\format{A list made of a  single element: \code{sd},
+the standard deviation of the normal proposition kernel (on the log-transformed parameter). Default to
+\eqn{0.35}.}
+\description{
+  The proposal for the log-transformed parameters are
+  Gaussian, centered at the current value.
+}
+\keyword{dataset}
+\keyword{datasets}
+

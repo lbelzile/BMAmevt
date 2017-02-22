@@ -1,0 +1,30 @@
+\name{excessProb.condit.dm}
+\alias{excessProb.condit.dm}
+\title{Probability of joint threshold exceedance, in the Dirichlet Mixture model,  given a DM parameter.}
+\usage{
+  excessProb.condit.dm(N = 100, par = get("dm.expar.D3k3"),
+    thres = rep(100, 3), plot = FALSE, add = FALSE)
+}
+\arguments{
+  \item{N}{The number of MC iterations to be performed}
+
+  \item{par}{the DM parameter, as a list}
+
+  \item{thres}{the multivariate threshold}
+
+  \item{plot}{logical: should convergence diagnostic plots
+  be issued ?}
+
+  \item{add}{logical: should the plot be added to a current
+  one ?}
+}
+\value{
+  a list made of \describe{ \item{mean}{the mean estimate
+  from the MC sample} \item{esterr}{the estimated standard
+  deviation of the estimator} \item{estsd}{The estimated
+  standard deviation of the MC sample} }
+}
+\description{
+  simple MC integration on the simplex.
+}
+

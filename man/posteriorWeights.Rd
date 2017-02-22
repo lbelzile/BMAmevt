@@ -1,0 +1,110 @@
+\name{posteriorWeights}
+\alias{posteriorWeights}
+\title{Posterior model weights}
+\usage{
+  posteriorWeights(dat,
+    HparList = list(get("pb.Hpar"), get("nl.Hpar")),
+    lklList = list(get("dpairbeta"), get("dnestlog")),
+    priorList = list(get("prior.pb"), get("prior.nl")),
+    priorweights = c(0.5, 0.5), Nsim = 20000,
+    Nsim.min = 10000, precision = 0.05, seed = 1,
+    kind = "Mersenne-Twister",
+    show.progress = floor(seq(1, Nsim, length.out = 10)),
+    displ = FALSE)
+}
+\arguments{
+  \item{HparList}{A list containing the hyper Parameter for
+  the priors in each model. (list of lists).}
+
+  \item{lklList}{A list containing the likelihood functions
+  of each model}
+
+  \item{priorList}{A list containing the prior definitions
+  of each model.}
+
+  \item{priorweights}{A vector of positive weights, summing
+  to one: the prior marginal weights of each model.}
+
+  \item{Nsim}{The maximum number of iterations to be
+  performed.}
+
+  \item{displ}{Logical. Should convergence monitoring plots
+  be issued ?}
+
+  \item{dat}{The angular data set relative to which the
+  marginal model likelihood is to be computed}
+
+  \item{Nsim.min}{The minimum number of iterations to be
+  performed.}
+
+  \item{precision}{the desired relative precision. See
+  \code{\link{MCpriorIntFun}}.}
+
+  \item{show.progress}{An vector of integers containing the
+  times (iteration numbers) at which a message showing
+  progression will be printed on the standard output.}
+
+  \item{seed}{The seed to be set \emph{via}
+  \code{\link[base]{set.seed}}.}
+
+  \item{kind}{The kind of random numbers generator. Default
+  to "Mersenne-Twister". See \code{\link[base]{set.seed}}
+  for details.}
+}
+\value{
+  A matrix of \eqn{6} columns and
+  \code{length(priorweights)} rows. The columns contain
+  respectively the posterior model weights (in the same
+  order as in \code{priorweights}), the lower and the upper
+  bound of the confidence interval (see \bold{Details}),
+  the marginal model weights, the estimated standard error
+  of the marginal likelihood estimators, and the number of
+  simulations performed.
+}
+\description{
+  Approximates the models' posterior weights by simple
+  Monte Carlo integration
+}
+\details{
+  if \eqn{J} is the number of models, the posterior weights
+  are given by \deqn{postW(i) = priorW(i)*lkl(i)/
+  (\sum_{j=1,\dots,J} priorW(j)*lkl(j)),} where
+  \eqn{lkl(i)} stands for the Monte-Carlo estimate of the
+  marginal likelihood of model \eqn{i} and \eqn{priorW(i)}
+  is the prior weight defined in \code{priorweights[i]}.
+  For more explanations, see the reference below The
+  confidence intervals are obtained by adding/subtracting
+  two times the estimated standard errors of the marginal
+  likelihood estimates. The latter are only estimates,
+  which interpretation may be misleading: See the note in
+  section \code{\link{marginal.lkl}}
+}
+\examples{
+data(pb.Hpar)
+data(nl.Hpar)
+set.seed(5)
+mixDat=rbind(rpairbeta(n=10,dimData=3, par=c(0.68,3.1,0.5,0.5)),
+  rnestlog(n=10,par=c(0.68,0.78, 0.3,0.5)))
+posteriorWeights (dat=mixDat,
+                  HparList=list(get("pb.Hpar"),get("nl.Hpar")),
+                  lklList=list(get("dpairbeta"), get("dnestlog")),
+                  priorList=list(get("prior.pb"), get("prior.nl")),
+                  priorweights=c(0.5,0.5),
+                  Nsim=1e+3,
+                  Nsim.min=5e+2, precision=0.1,
+                  displ=FALSE)
+\dontrun{posteriorWeights (dat=mixDat,
+                  HparList=list(get("pb.Hpar"),get("nl.Hpar")),
+                  lklList=list(get("dpairbeta"), get("dnestlog")),
+                  priorList=list(get("prior.pb"), get("prior.nl")),
+                  priorweights=c(0.5,0.5),
+                  Nsim=20e+3,
+                  Nsim.min=10e+3, precision=0.05,
+                  displ=TRUE)}
+}
+\references{
+  HOETING, J., MADIGAN, D., RAFTERY, A. and VOLINSKY, C.
+  (1999). Bayesian model averaging: A tutorial.
+  \emph{Statistical science 14, 382-401}.
+}
+

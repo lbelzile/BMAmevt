@@ -1,0 +1,43 @@
+\name{maxLikelihood}
+\alias{maxLikelihood}
+\title{Maximum likelihood optimization}
+\usage{
+  maxLikelihood(data, model, init = NULL, maxit = 500,
+    method = "L-BFGS-B", hess = T, link, unlink)
+}
+\arguments{
+  \item{data}{The angular data to be used for inference}
+
+  \item{model}{A list made of \describe{
+  \item{likelihood}{The likelihood function, see
+  \code{\link{dpairbeta}} for a template}. \item{npar}{The
+  length of the parameter vector} }}
+
+  \item{init}{NULL or a real vector of size
+  \code{model$npar} giving the initial values for
+  \code{link{par}}.}
+
+  \item{maxit}{maximum number of iterations to be performed
+  by function \code{optim}}
+
+  \item{method}{The method to be used by \code{optim}}
+
+  \item{hess}{logical: should an approximation of the
+  hessian be performed ?}
+
+  \item{link}{the link function from the natural marginal
+  parameter spaces to the real line.}
+
+  \item{unlink}{the inverse link function. If \code{x} is
+  any real number, then \code{unlink(x)} should be in the
+  admissible range for the likelihood function and the
+  prior function.}
+}
+\value{
+  The list returned by \code{optim} and the AIC and BIC
+  criteria
+}
+\description{
+  Maximum likelihood optimization
+}
+

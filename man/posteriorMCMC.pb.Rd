@@ -1,0 +1,76 @@
+\name{posteriorMCMC.nl}
+\alias{posteriorMCMC.nl}
+\alias{posteriorMCMC.pb}
+\title{MC MC posterior samplers for the  the PB and  the NL model.}
+\usage{
+  posteriorMCMC.nl(Nsim, dat, Hpar, MCpar, ...)
+
+  posteriorMCMC.pb(Nsim, dat, Hpar, MCpar, ...)
+}
+\arguments{
+  \item{...}{Additional arguments to be passed to
+  \code{\link{posteriorMCMC}} instead of their default
+  values (must not contain any of \code{"prior",
+  "likelihood", "proposal", "name.model"} or
+  \code{"class"}).}
+
+  \item{Nsim}{Total number of iterations to perform.}
+
+  \item{dat}{An angular data set, \emph{e.g.} constructed
+  by \code{\link{cons.angular.dat}}: A matrix which rows
+  are the Cartesian coordinates of points on the unit
+  simplex (summing to one).}
+
+  \item{Hpar}{A list containing Hyper-parameters to be
+  passed to \code{prior}.}
+
+  \item{MCpar}{A list containing MC MC tuning parameters to
+  be passed to \code{proposal}.}
+}
+\value{
+  an object with class attributes \code{"postsample"} and
+  \code{"PBNLpostsample"}: The posterior sample and some
+  statistics as returned by function
+  \code{\link{posteriorMCMC}}
+}
+\description{
+  The functions generate parameters samples approximating
+  the posterior distribution in the PB model or the NL
+  model.
+}
+\details{
+  The two functions are wrappers simplifying the use of
+  \code{\link{posteriorMCMC}} for the two models
+  implemented in this package.
+}
+\note{
+  For the Leeds data set, and for simulated data sets with
+  similar features, setting \code{Nsim=50e+3} and
+  \code{Nbin=15e+3} is enough (possibly too much), with
+  respect to the Heidelberger and Welch tests implemented
+  in \code{\link[coda]{heidel.diag}}.
+}
+\examples{
+\dontrun{
+data(Leeds)
+data(pb.Hpar)
+data(pb.MCpar)
+data(nl.Hpar)
+data(nl.MCpar)
+pPB <- posteriorMCMC.pb(Nsim=5e+3, dat=Leeds, Hpar=pb.Hpar,
+MCpar=pb.MCpar)
+
+dim(pPB[1])
+pPB[-(1:3)]
+
+pNL <- posteriorMCMC.nl(Nsim=5e+3, dat=Leeds, Hpar=nl.Hpar,
+MCpar=nl.MCpar)
+
+dim(pNL[1])
+pNL[-(1:3)]
+}
+}
+\seealso{
+  \code{\link{posteriorMCMC}}
+}
+

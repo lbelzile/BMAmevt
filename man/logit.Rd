@@ -1,0 +1,17 @@
+\name{logit}
+\alias{logit}
+\title{Logit transformation}
+\usage{
+  logit(p)
+}
+\arguments{
+  \item{p}{A real number in \eqn{[0,1]}}
+}
+\value{
+  A real number
+}
+\description{
+  Bijective Transformation from \eqn{(0,1)} to the real
+  line, defined by \eqn{logit(p) = log( p / (1-p) )}.
+}
+

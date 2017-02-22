@@ -1,0 +1,94 @@
+\name{marginal.lkl}
+\alias{marginal.lkl}
+\title{Marginal model likelihood}
+\usage{
+  marginal.lkl(dat, likelihood, prior, Nsim = 300,
+    displ = TRUE, Hpar, Nsim.min = Nsim, precision = 0,
+    show.progress = floor(seq(1, Nsim, length.out = 20)))
+}
+\arguments{
+  \item{dat}{The angular data set relative to which the
+  marginal model likelihood is to be computed}
+
+  \item{likelihood}{The likelihood function of the model.
+  See \code{\link{posteriorMCMC}} for the required format.}
+
+  \item{displ}{logical. If \code{TRUE}, a plot is produced,
+  showing the temporal evolution of the cumulative mean,
+  with approximate confidence intervals of \eqn{+/-2}
+  estimated standard errors.}
+
+  \item{precision}{the desired relative precision. See
+  \code{\link{MCpriorIntFun}}.}
+
+  \item{prior}{The prior distribution: of type \cr
+  \code{function(type=c("r","d"), n ,par, Hpar, log,
+  dimData )}, where \code{dimData} is the dimension of the
+  sample space (\emph{e.g.}, for the two-dimensional
+  simplex (triangle), \code{dimData=3}. Should return
+  either a matrix with \code{n} rows containing a random
+  parameter sample generated under the prior (if \code{type
+  == "d"}), or the density of the parameter \code{par} (the
+  logarithm of the density if \code{log==TRUE}. See
+  \code{\link{prior.pb}} and \code{\link{prior.nl}} for
+  templates.}
+
+  \item{Nsim}{Total number of iterations to perform.}
+
+  \item{Hpar}{A list containing Hyper-parameters to be
+  passed to \code{prior}.}
+
+  \item{show.progress}{An vector of integers containing the
+  times (iteration numbers) at which a message showing
+  progression will be printed on the standard output.}
+
+  \item{Nsim.min}{The minimum number of iterations to be
+  performed.}
+}
+\value{
+  The list returned by \code{\link{MCpriorIntFun}}. The
+  estimate is the list's element named \code{emp.mean}.
+}
+\description{
+  Estimates the marginal likelihood of a model, proceeding
+  by simple Monte-Carlo integration under the prior
+  distribution.
+}
+\details{
+  The function is a wrapper calling
+  \code{\link{MCpriorIntFun}} with parameter \code{FUN} set
+  to \code{likelihood}.
+}
+\note{
+  The estimated standard deviations of the estimates
+  produced by this function should be handled with care:For
+  "larger" models than the Pairwise Beta or the NL models,
+  the likelihood may have infinite second moment under the
+  prior distribution.  In such a case, it is recommended to
+  resort to more sophisticated integration methods,
+  \emph{e.g.} by sampling from a mixture of the prior and
+  the posterior distributions. See the reference below for
+  more details.
+}
+\examples{
+\dontrun{
+  lklNL=  marginal.lkl(dat=Leeds,
+                 likelihood=dnestlog,
+                 prior=prior.nl,
+                 Nsim=20e+3,
+                 displ=TRUE,
+                 Hpar=nl.Hpar,
+                )
+}
+}
+\references{
+  KASS, R. and RAFTERY, A. (1995). Bayes factors.
+  \emph{Journal of the american statistical association ,
+  773-795}.
+}
+\seealso{
+  \code{\link{marginal.lkl.pb}},
+  \code{\link{marginal.lkl.nl}} for direct use with the
+  implemented models.
+}
+

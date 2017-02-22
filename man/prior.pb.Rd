@@ -1,0 +1,51 @@
+\name{prior.pb}
+\alias{prior.pb}
+\title{Prior parameter distribution for the Pairwise Beta model}
+\usage{
+  prior.pb(type = c("r", "d"), n, par, Hpar, log, dimData)
+}
+\arguments{
+  \item{type}{One of the character strings \code{"r"},
+  \code{"d"}}
+
+  \item{n}{The number of parameters to be generated. Only
+  used if \code{type == "r"}.}
+
+  \item{par}{A vector with positive components: The
+  parameter where the density is to be taken. Only used if
+  \code{type=="d"}. In the Pairwise Beta model, \code{par}
+  is of length \code{choose(p,2)+1}. The first element is
+  the global dependence parameter, the subsequent ones are
+  the pairwise dependence parameters, in lexicographic
+  order (\emph{e.g.} \eqn{\beta_{1,2}, \beta_{1,3},
+  \beta_{2,3}}.}
+
+  \item{Hpar}{list of Hyper-parameters : see
+  \code{\link{pb.Hpar}} for a template.}
+
+  \item{log}{logical. Should the density be returned on the
+  log scale ? Only used if \code{type=="d"}}
+
+  \item{dimData}{The dimension of the sample space. (one
+  more than the dimension of the simplex)}
+}
+\value{
+  Either a matrix with \code{n} rows containing a random
+  parameter sample generated under the prior (if type ==
+  "d"), or the (log)-density of the parameter \code{par}.
+}
+\description{
+  Density and generating function of the prior
+  distribution.
+}
+\details{
+  The parameters components are independent, log-normal.
+}
+\examples{
+\dontrun{prior.pb(type="r", n=5 ,Hpar=get("pb.Hpar"), dimData=3 ) }
+\dontrun{prior.pb(type="d", par=rep(1,choose(4,2), Hpar=get("pb.Hpar"), dimData=4 ) }
+}
+\author{
+  Anne Sabourin
+}
+

@@ -1,0 +1,19 @@
+\docType{data}
+\name{dm.expar.D3k3}
+\alias{dm.expar.D3k3}
+\title{Example of valid Dirichlet mixture parameter for tri-variate extremes.}
+\format{A list made of \describe{
+\item{Mu}{ A \eqn{3*3} matrix, which rows sum to one, such that the
+center of mass of the three column vectors (weighted with \code{wei}) is the centroid of the simplex: each column is the center of a Dirichlet mixture component. }
+\item{wei}{A vector of length three, summing to one: the mixture weights}
+\item{lnu}{ A vector of length three: the logarithm of the concentration parameters. }
+}}
+\description{
+  The Dirichlet mixture density has three components, the
+  center of mass of the three columns of \code{Mu}, with
+  weights \code{wei} is \eqn{(1/3,1/3,1/3)}: the centroid
+  of the two dimensional unit simplex.
+}
+\keyword{dataset}
+\keyword{datasets}
+

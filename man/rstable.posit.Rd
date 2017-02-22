@@ -1,0 +1,28 @@
+\name{rstable.posit}
+\alias{rstable.posit}
+\title{Positive alpha-stable distribution.}
+\usage{
+  rstable.posit(alpha = 0.5)
+}
+\arguments{
+  \item{alpha}{The parameter of the alpha-stable random
+  variable}
+}
+\value{
+  A realization of the alpha-stable random variable.
+}
+\description{
+  Random variable generator
+}
+\details{
+  An alpha-stable random variable \eqn{S} with index
+  \eqn{\alpha} is defined by its Laplace transform
+  \eqn{E(exp(tS))) = exp(-t^\alpha)}. The algorithm used
+  here is directly derived from Stephenson (2003).
+}
+\references{
+  STEPHENSON, A. (2003). Simulating multivariate extreme
+  value distributions of logistic type. \emph{Extremes 6,
+  49-59}.
+}
+

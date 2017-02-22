@@ -1,0 +1,339 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}% gestion des accents (pour les pdf)
+%\usepackage[english,french]{babel}
+
+\usepackage[english]{babel}
+\usepackage{amsthm, amssymb, amstext}
+
+\usepackage{color}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{cases}
+\usepackage{natbib}
+\bibliographystyle{plain}
+\usepackage{hyperref}
+\usepackage{url}
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{2em}
+\addtolength{\textheight}{2ex}
+
+%%%\numberwithin{figure}{section}
+%%%\numberwithin{equation}{section}
+%%numberwithin{equation}{subsection}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exmp}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{note}{Note}
+
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\mb}{\mathbf}
+\newcommand{\ms}{\mathscr}
+\newcommand{\BMA}{\textsc{BMA}}
+\newcommand{\PB}{\textsc{PB}}
+\newcommand{\NL}{\textsc{NL}}
+\newcommand\email{\begingroup \urlstyle{rm}\Url}
+
+
+\title{ The \textsf{BMAmevt} package: \\
+ Bayesian Model Averaging at work  for 
+Multivariate Extremes}
+\date{}
+
+\author{Anne Sabourin}
+					
+                   
+% \thanks{Advisors: Philippe Naveau (Laboratoire des Sciences du Climat et de l'Environnement, Gif-Sur-Yvette), Anne-Laure Fougères (Institut Camille Jordan, Lyon 1) }
+
+ %% \texttt{\lowercase{sabourin@math.univ-lyon1.fr}}
+
+%\VignetteIndexEntry{ Bayesian Model Averaging for Multivariate Extremes}
+%\VignetteDepens{stats, utils}
+%\VignetteKeyword{Extreme Value Theory, Multivariate Extremes,
+%spectral Measure} 
+%\VignettePackage{BMAmevt}
+
+\usepackage{Sweave}
+\begin{document}
+
+\maketitle
+
+\begin{center}
+%  \large
+  %\vspace{0.2cm}
+ %  Anne Sabourin \\
+ % \email{sabourin@math.univ-lyon1.fr}
+%  \normalsize
+
+\email{sabourin@math.univ-lyon1.fr}\\
+\email{anne.sabourin@lsce.ipsl.fr}\\
+\email{annesab1@gmail.com}\\					
+  \vspace{0.2cm}
+  Université de Lyon I , France \\
+  Laboratoire des Sciences du Climat et de l'Environnement, Saclay,
+  France.  \\
+  \vspace{0.2cm}
+ \end{center}
+
+\section{Overview}
+
+This package  is a  'Bayesian Model
+Averaging' (\BMA) toolkit. The main purpose is the estimation of  the
+dependence structure between  the largest values of multivariate
+data, using the probabilistic framework of  Multivariate Extreme
+Value Theory. However, the principal functions implemented here  (MC MC
+sampler and simple Monte-Carlo sampler for the marginal model
+likelihoods, see below) could be
+used in any other statistical context.  
+
+This package has been developped to implement the methods proposed in 
+\cite{Sabourin12}.% , submitted to Biometrika. A preprint  is available   
+% \href{http://www.lsce.ipsl.fr/Phocea/Pisp/index.php?nom=anne.sabourin}{here}. 
+
+% The  main  framework of multivariate extreme value theory is well-known
+% in terms of probability: The dependence structure among very high
+% values of a data set can be characterized by   the so-called 'Spectral
+% measure', or 'Angular measure' \citep[see
+% \emph{e.g.}][]{resnick1987extreme,Beirlant04,deHaanFerreira06},  which
+% is a probability measure on  the positive quadrant of
+% the unit sphere, \emph{i.e.},  for the $L^1$ norm, the simplex. 
+% Inference and model choice issues  still remain:   no  parametric form can entirely
+% capture the dependence structure. 
+% Driven by interpretabilility needs and/or computational constraints, 
+% the practitioner often makes an assertive choice and arbitrarily fits
+% a specific parametric angular measure on the data.
+% Another statistician could come up with another  model and a completely  different estimate. 
+% How to take into account the  different fitted angular measures ? 
+% One possible way to do this  is  to weigh them 
+% according to the marginal model
+% likelihoods. This strategy, the so-called Bayesian Model Averaging 
+% (\BMA),   has been extensively studied in various contexts, but (to
+% our knowledge) it has never been adapted   to  the realm  of multivariate extreme value theory. 
+
+% Basic  tools  for a  \BMA
+% approach to the estimation of the angular measure of  multivariate
+% extreme value distributions are provided. 
+The main functions are 
+\begin{itemize}
+\item \verb@posteriorMCMC@: A generic MC MC sampler (Metropolis-Hastings algorithm)  to estimate the posterior
+distributions  in individual models,
+\item \verb@marginal.lkl@ : A generic Monte-Carlo sampler to estimate the model likelihoods.
+\end{itemize}
+Plotting tools are also provided for the three dimensional case
+(functions \verb@ dgridplot, discretize@) to display contour lines
+and level sets of angular measures.
+
+Any parametric  model may be passed as argument. To
+'plug' one's  favorite model into the package, one  only needs to  define
+\begin{itemize}
+\item The likelihood function of the  model (a parametric density on
+  the simplex or any other finite dimensional sample space),
+\item The prior parameter distribution together with a  prior sampler.
+\item The proposal distribution and simulating rule for the   Metropolis-Hastings algorithm.
+\end{itemize}
+By way of example, two parametric  models are pre-implemented: the
+Pairwise Beta (\PB) model , valid in
+arbitrary 
+`` moderate''  dimension\footnote{It has been tested on five
+  dimensional data sets in \cite{cooley2010pairwise}. It would be computationally  unrealistic   to implement our methods to much higher dimensions.}, and a specific 'Nested Asymmetric' extension of the logistic model 
+\cite{gumbel1960distributions}), only valid with three dimensional
+data, which we refer to as the \NL\ model.  This nested extension  
+ was cited as an example in \cite{tawn1990modelling} and
+\cite{coles1991modeling}. See \cite{Sabourin12} for
+more details.
+\section{Tutorial}
+We give here two basic examples showing  how to use the functions of the
+package.
+
+\subsection{Simulated data}
+We consider the following problem: Given an angular dataset, how to
+conduct the estimation in the PB and NL model, and how to merge the
+estimated spectral measures ?
+
+ 
+First, simulate the data:
+\begin{Schunk}
+\begin{Sinput}
+> PBpar=c(0.7,3.1,0.45,2)
+> NLpar=c(0.7,0.8)
+> set.seed(1)
+> mixDat=rbind(rpairbeta(n=50,dimData=3, par=PBpar),
++   rnestlog(n=50,par=NLpar))
+\end{Sinput}
+\end{Schunk}
+
+Now, check that the two models have comparable posterior weights
+\begin{Schunk}
+\begin{Sinput}
+> pWei=posteriorWeights (dat=mixDat,
++                   HparList=list( pb.Hpar, nl.Hpar ),
++                   lklList=list( dpairbeta, dnestlog ),
++                   priorList=list( prior.pb,  prior.nl ),
++                   priorweights=c(0.5,0.5),
++                   Nsim=50e+3,
++                   Nsim.min=10e+3, precision=0.1,
++                   show.progress=c(),
++                   displ=FALSE)
+> pWei
+\end{Sinput}
+\end{Schunk}
+You will obtain a matrix with first column (the posterior weights)  approximately equal to 
+\verb@ c(0.31,0.69)@. 
+
+Now, conduct the inference in each model,  separately:
+\begin{Schunk}
+\begin{Sinput}
+> PBpost=posteriorMCMC.pb(dat=mixDat,Nsim=15e+3,Nbin=5e+3,
++   show.progress= c(100, 10e+3))
+> NLpost=posteriorMCMC.nl(dat=mixDat,Nsim=15e+3,Nbin=5e+3,
++   show.progress= c(100, 10e+3))
+\end{Sinput}
+\end{Schunk}
+
+It is recommended to check convergence: 
+\begin{Schunk}
+\begin{Sinput}
+> library(coda)
+> heidel.diag(PBpost$stored.vals)
+> heidel.diag(NLpost$stored.vals)
+\end{Sinput}
+\end{Schunk}
+
+Have a look at the posterior predictive spectral densities:
+\begin{itemize}
+\item In the \PB ~model only:
+\begin{Schunk}
+\begin{Sinput}
+>   dev.new()
+> PBpred=posterior.predictive.pb(post.sample=PBpost,from=NULL, to=NULL,
++   lag=40,npoints=60,eps=1e-3, equi=TRUE, displ=TRUE, main="PB predictive")
+\end{Sinput}
+\end{Schunk}
+
+\item In the \NL ~model only:
+\begin{Schunk}
+\begin{Sinput}
+> dev.new()
+> NLpred=posterior.predictive.nl(post.sample=NLpost,from=NULL, to=NULL,
++   lag=40,npoints=60,eps=1e-3, equi=TRUE, displ=TRUE, main="NL predictive")
+\end{Sinput}
+\end{Schunk}
+
+\item Finally, the \BMA  ~predictive is:
+\begin{Schunk}
+\begin{Sinput}
+> dev.new()
+> dgridplot(0.31*PBpred + 0.69*NLpred, npoints=60, eps=1e-3, equi=TRUE,
++      main="BMA predictive")
+\end{Sinput}
+\end{Schunk}
+\end{itemize}
+
+Compare to the `truth':
+\begin{Schunk}
+\begin{Sinput}
+> pbdens=dpairbeta.grid(par=PBpar, displ=FALSE, equi=T, npoints=60,eps=1e-3)
+> nldens=dnestlog.grid(par=NLpar, displ=FALSE,  equi=T, npoints=60,eps=1e-3)
+> dev.new()
+> dgridplot(0.5*(pbdens)+0.5*(nldens), equi=T, npoints=60, eps=1e-3,
++        main="Truth")
+\end{Sinput}
+\end{Schunk}
+
+To obtain a quantitative assessment of the gain represented by the BMA
+approach, you may compare the Kullback-Leibler (KL)  divergence and the
+$L^2$ distance between the true density and each estimate:
+
+\begin{Schunk}
+\begin{Sinput}
+> ## choose a grid size
+> npoints=100
+> eps=1e-3
+> ##
+> ## compute the true density on this grid
+> TRUEdens=0.5*dnestlog.grid(par=NLpar, equi=F, npoints=npoints,eps=eps,
++                            displ=FALSE )+
++   0.5*dpairbeta.grid(par=PBpar,equi=F,npoints=npoints,eps=eps,displ=FALSE)
+> ##
+> ## check that the grid is fine enough
+> scores3D(true.dens=TRUEdens, est.dens=TRUEdens, npoints=npoints,
++          eps=eps)
+> ##
+> ## compute the posterior predictive:
+> #### in the PB model:
+> rectPBpred=posterior.predictive.pb(post.sample=PBpost,from=NULL, to=NULL,
++   lag=40,npoints=npoints,eps=eps,equi=FALSE, displ=FALSE)
+> #### in the NL model: 
+> rectNLpred=posterior.predictive.nl(post.sample=NLpost,from=NULL, to=NULL,
++   lag=40,npoints=npoints,eps=eps,equi=FALSE, displ=FALSE)
+> ##
+> ## Finally, compare the performance scores:
+> #### PB scores
+> scores3D(true.dens=TRUEdens, est.dens=rectPBpred, npoints=npoints,
++          eps=eps)
+> #### NL scores
+> scores3D(true.dens=TRUEdens, est.dens=rectNLpred, npoints=npoints,
++          eps=eps)
+> #### BMA scores
+> scores3D(true.dens = TRUEdens,
++          est.dens = 0.31*rectPBpred+
++             0.69*rectNLpred,
++          npoints=npoints,
++          eps=eps)
+\end{Sinput}
+\end{Schunk}
+ 
+The \BMA ~predictive spectral measure overcomes each individual model's
+predictive, both for the $L^2$ score and the logarithmic  score. 
+
+ 
+\subsection{Tri-variate Leeds dataset}
+ (see \cite{Sabourin12} or \cite{cooley2010pairwise})
+
+Let us consider the tri-variate air pollutant concentrations data
+provided with the package. 
+
+Again, estimate the posterior weights:
+
+\begin{Schunk}
+\begin{Sinput}
+>   pWeiLeeds=posteriorWeights (dat=Leeds,
++                   HparList=list( pb.Hpar, nl.Hpar ),
++                   lklList=list(dpairbeta , dnestlog ),
++                   priorList=list(prior.pb, prior.nl ),
++                   priorweights=c(0.5,0.5),
++                   Nsim=50e+3,
++                   Nsim.min=10e+3, precision=0.1,
++                   displ=TRUE)
+> pWeiLeeds
+\end{Sinput}
+\end{Schunk}
+The \NL ~model obtains an overwhelming posterior weight. The BMA
+framework  thus selects  a single model. It is unnecessary to 
+compute  the parameter posterior distribution in the \PB ~model, since
+averaging estimates will be  the same as selecting the \NL ~estimate.
+
+This example is not an exceptional case: with increasing sample size, 
+the BMA is bound to become a selecting tool. In the asymptotic limit,
+the model which minimizes the Kullback-Leibler distance to the 'truth'
+will be chosen. See \emph{e.g.} \cite{berk1966limiting,
+  kleijn2006misspecification}.  
+
+%%\bibliographystyle{apalike}
+\bibliography{biblio}   
+
+\end{document}

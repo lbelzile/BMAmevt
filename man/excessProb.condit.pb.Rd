@@ -1,0 +1,36 @@
+\name{excessProb.condit.pb}
+\alias{excessProb.condit.pb}
+\title{Estimates the probability of joint excess, given a PB parameter.}
+\usage{
+  excessProb.condit.pb(par = c(0.8, 1, 2, 3),
+    thres = rep(500, 5), precision = 0.1, Nmin = 200,
+    displ = FALSE, add = FALSE)
+}
+\arguments{
+  \item{par}{the DM parameter, as a list}
+
+  \item{thres}{the multivariate threshold}
+
+  \item{precision}{The desired relative precision of the
+  estimate.}
+
+  \item{Nmin}{The number of MC iterations to be performed}
+
+  \item{displ}{logical: should convergence diagnostic plots
+  be issued ?}
+
+  \item{add}{logical: should the plot be added to a current
+  one ?}
+}
+\value{
+  a list made of \describe{ \item{mean}{The mean estimate
+  from the MC sample} \item{esterr}{The estimated standard
+  deviation of the estimator} \item{estsd}{The estimated
+  standard deviation of the MC sample} }
+}
+\description{
+  Simple MC integration on the simplex for joint excess
+  probability, in the PB model.
+}
+\keyword{internal}
+

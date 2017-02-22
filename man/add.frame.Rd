@@ -1,0 +1,46 @@
+\name{add.frame}
+\alias{add.frame}
+\title{Adds graphical elements to a plot of the two dimensional simplex.}
+\usage{
+  add.frame(equi = FALSE, lab1 = "w1", lab2 = "w2",
+    lab3 = "w3", npoints = 60, col.polygon = "black",
+    axes = TRUE)
+}
+\arguments{
+  \item{lab1}{Character string: label for first component.}
+
+  \item{lab2}{Character string: label for second
+  component.}
+
+  \item{lab3}{Character string: label for third component.}
+
+  \item{col.polygon}{The background color outside the
+  simplex.}
+
+  \item{axes}{logical. Should axes be added ?}
+
+  \item{equi}{logical. Is the simplex represented as an
+  equilateral triangle (if \code{TRUE}) or a right triangle
+  (if \code{FALSE}) ?}
+
+  \item{npoints}{The number of grid nodes on the squared
+  grid containing the desired triangle.}
+}
+\description{
+  Adds graphical elements to the current plot (on the
+  two-dimensional simplex).
+}
+\details{
+  Generic graphical tool for obtaining nice plots of the
+  two-dimensional simplex
+}
+\examples{
+plot.new()
+add.frame()
+plot.new()
+mult.x=sqrt(2); mult.y=sqrt(3/2)
+plot.window( xlim=c(0,mult.x),ylim=c(0,mult.y), asp=1,bty ="n")
+add.frame(equi=TRUE)
+}
+\keyword{aplot}
+

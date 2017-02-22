@@ -1,0 +1,64 @@
+\name{excessProb.pb}
+\alias{excessProb.pb}
+\title{Estimates the probability of joint excess (Frechet margins)}
+\usage{
+  excessProb.pb(post.sample, Nmin.intern = 100,
+    precision = 0.05, from = NULL, to = NULL, thin = 100,
+    displ = FALSE, thres = rep(500, 5), known.par = FALSE,
+    true.par)
+}
+\arguments{
+  \item{Nmin.intern}{The minimum number of MC iteration in
+  the internal loop (excess probability, conditional to a
+  parameter).}
+
+  \item{precision}{The desired precision for the internal
+  MC estimate}
+
+  \item{post.sample}{The posterior sample.}
+
+  \item{thres}{A multivariate threshold}
+
+  \item{known.par}{Logical}
+
+  \item{true.par}{The true parameter from which the data
+  are issued.}
+
+  \item{from}{Integer or \code{NULL}. If \code{NULL}, the
+  default value is used. Otherwise, should be greater than
+  \code{post.sample$Nbin}. Indicates the index where the
+  averaging process should start. Default to
+  \code{post.sample$Nbin +1}}
+
+  \item{to}{Integer or \code{NULL}. If \code{NULL}, the
+  default value is used. Otherwise, must be lower than
+  \code{Nsim+1}. Indicates where the averaging process
+  should stop. Default to \code{post.sample$Nsim}.}
+
+  \item{thin}{Thinning interval.}
+
+  \item{displ}{logical. Should a plot be produced ?}
+}
+\value{
+  A list made of \describe{ \item{whole}{ A vector of
+  estimated excess probabilities, one for each element of
+  the thinned posterior sample.} \item{mean}{the estimated
+  threshold excess probability: mean estimate.}
+  \item{esterr}{The estimated standard deviation of the
+  mean estimate (where the Monte-Carlo error is neglected)}
+  \item{estsd}{The estimated standard deviation of the
+  posterior sample (where the Monte-Carlo error is
+  neglected)} \item{lowquants}{The three lower \eqn{0.1}
+  quantiles of, respectively, the conditional mean
+  estimates and of the upper and lower bounds of the
+  Gaussian (centered) \eqn{80} \% confidence intervals
+  around the conditional estimates. } \item{upquants}{The
+  three upper \eqn{0.9} quantiles} \item{true.est}{the mean
+  estimate conditional to the true parameter: a vector of
+  size three: the mean estimate , and the latter +/- the
+  standard deviation of the estimate} }
+}
+\description{
+  Double Monte-Carlo integration.
+}
+

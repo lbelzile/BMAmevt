@@ -1,0 +1,68 @@
+\name{posterior.predictive.nl}
+\alias{posterior.predictive.nl}
+\alias{posterior.predictive.pb}
+\title{Posterior predictive densities in the three dimensional
+PB, NL and NL3  models}
+\usage{
+  posterior.predictive.nl(post.sample,
+    from = post.sample$Nbin + 1, to = post.sample$Nsim,
+    thin = 50, npoints = 40, eps = 0.001, equi = T,
+    displ = T, ...)
+
+  posterior.predictive.pb(post.sample,
+    from = post.sample$Nbin + 1, to = post.sample$Nsim,
+    thin = 50, npoints = 40, eps = 10^(-3), equi = T,
+    displ = T, ...)
+}
+\arguments{
+  \item{post.sample}{A posterior sample as returned by
+  \code{\link{posteriorMCMC}}}
+
+  \item{from}{Integer or \code{NULL}. If \code{NULL}, the
+  default value is used. Otherwise, should be greater than
+  \code{post.sample$Nbin}. Indicates the index where the
+  averaging process should start. Default to
+  \code{post.sample$Nbin +1}}
+
+  \item{to}{Integer or \code{NULL}. If \code{NULL}, the
+  default value is used. Otherwise, must be lower than
+  \code{Nsim+1}. Indicates where the averaging process
+  should stop. Default to \code{post.sample$Nsim}.}
+
+  \item{thin}{Thinning interval.}
+
+  \item{npoints}{The number of grid nodes on the squared
+  grid containing the desired triangle.}
+
+  \item{eps}{Positive number: minimum distance from any
+  node inside the simplex to the simplex boundary}
+
+  \item{equi}{logical. Is the simplex represented as an
+  equilateral triangle (if \code{TRUE}) or a right triangle
+  (if \code{FALSE}) ?}
+
+  \item{displ}{logical. Should a plot be produced ?}
+
+  \item{...}{Additional graphical parameters and arguments
+  to be passed to \code{\link[graphics]{contour}} and
+  \code{\link[graphics]{image}}.}
+}
+\value{
+  A \code{npoints*npoints} matrix: the posterior predictive
+  density.
+}
+\description{
+  Wrappers for \code{\link{posterior.predictive3D}} in the
+  PB and NL models.
+}
+\details{
+  The posterior predictive density is approximated by
+  averaging the densities corresponding to the parameters
+  stored in \code{post.sample}. See
+  \code{\link{posterior.predictive3D}} for details.
+}
+\seealso{
+  \code{\link{posterior.predictive3D}},
+  \code{\link{posteriorMCMC.pb}}.
+}
+

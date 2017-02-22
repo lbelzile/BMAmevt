@@ -1,0 +1,57 @@
+\name{scores3D}
+\alias{scores3D}
+\title{Logarithmic score and \eqn{L^2} distance  between two densities on the simplex (trivariate case).}
+\usage{
+  scores3D(true.dens, est.dens, npoints, eps)
+}
+\arguments{
+  \item{true.dens}{A \code{npoints*npoints} matrix: The
+  reference density, typically the distribution from which
+  data was simulated. Must be a valid \code{density}
+  argument to be passed to \code{dgridplot}, with
+  \code{equi=FALSE}.}
+
+  \item{est.dens}{The estimated density: of the same type
+  as \code{true.dens}.}
+
+  \item{npoints}{Number of grid points used to construct
+  the density matrices (see \code{\link{discretize}}).}
+
+  \item{eps}{Minimum distance from a grid point to the
+  simplex boundary (see \code{\link{discretize}}).}
+}
+\value{
+  A list made of \itemize{ \item \code{check.true}: The
+  result of the rectangular integration of
+  \code{true.dens}. It should be equal to one. If not, re
+  size the grid. \item \code{check.true}: Idem, replacing
+  \code{true.dens} with \code{est.dens}. \item
+  \code{L2score}: The estimated \eqn{L^2} distance. \item
+  \code{KLscore}: The estimated Kullback-Leibler divergence
+  between the two re-normalized densities, using
+  \code{check.true} and \code{check.est} as normalizing
+  constants (this ensures that the divergence is always
+  positive). }
+}
+\description{
+  Computes the Kullback-Leibler divergence and the
+  \eqn{L^2} distance between the "true" density
+  (\code{true.dens}) and an estimated density
+  (\code{est.dens}).
+}
+\details{
+  The integration is made \emph{via}
+  \code{\link{rect.integrate}}: The discretization grid
+  corresponding to the two matrices must be constructed
+  with \code{discretize(npoints, eps, equi=FALSE)}.
+}
+\examples{
+dens1=dpairbeta.grid(par=c(0.8,2,5,8),npoints=150,eps=1e-3,
+                     equi=FALSE)
+dens2=dnestlog.grid(par=c(0.5,0.8,0.4,0.6),npoints=150,eps=1e-3, equi=FALSE)
+
+scores3D(true.dens=dens1,
+  est.dens=dens2,
+  npoints=150, eps=1e-4)
+}
+

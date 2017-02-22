@@ -1,0 +1,28 @@
+\docType{data}
+\name{pb.Hpar}
+\alias{pb.Hpar}
+\title{Default hyper-parameters for the Pairwise Beta model.}
+\format{A list of four parameters: \describe{
+
+\item{ mean.alpha}{
+Mean of the  log-transformed global dependence parameter. Default to \eqn{0}  )
+}
+
+\item{sd.alpha}{Standard deviation  of the log-transformed global dependence parameter.  Default to \eqn{3}.
+}
+\item{mean.beta}{
+Mean of each of the  log-transformed pairwise  dependence parameters.
+Default to \eqn{0}  )
+}
+\item{sd.beta}{Standard deviation  of each of the  log-transformed
+pairwise dependence parameters.  Default to \eqn{3}.
+}
+}}
+\description{
+  The log-transformed dependence parameters are a priori
+  independent, Gausian. This list contains the means and
+  standard deviation for the prior distributions.
+}
+\keyword{dataset}
+\keyword{datasets}
+

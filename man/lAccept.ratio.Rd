@@ -1,0 +1,70 @@
+\name{lAccept.ratio}
+\alias{lAccept.ratio}
+\title{Acceptance probability in the MC MC algorithm.}
+\usage{
+  lAccept.ratio(cur.par, prop.par, llh.cur, lprior.cur,
+    dat, likelihood, proposal, prior, Hpar, MCpar)
+}
+\arguments{
+  \item{cur.par}{The current parameter in the Markov chain}
+
+  \item{prop.par}{The candidate parameter}
+
+  \item{dat}{An angular data set, \emph{e.g.} constructed
+  by \code{\link{cons.angular.dat}}: A matrix which rows
+  are the Cartesian coordinates of points on the unit
+  simplex (summing to one).}
+
+  \item{likelihood}{The likelihood function. Should be of
+  type\cr \code{function(x, par, log, vectorial)}, where
+  \code{log} and \code{vectorial} are logical flags
+  indicating respectively if the result is to be returned
+  on the log-scale, and if the value is a vector of length
+  \code{nrow(x)} or a single number (the likelihood, or the
+  log-likelihood, for the data set \code{x}). See
+  \code{\link{dpairbeta}} or \code{\link{dnestlog}} for
+  templates.}
+
+  \item{proposal}{The proposal function: of type \cr
+  \code{function(type = c("r","d"), cur.par, prop.par,
+  MCpar, log) }. Should return the (logarithm of) the
+  proposal density for the move \code{cur.par --> prop.par}
+  if \code{type == "d"}. If \code{type =="r"},
+  \code{proposal} must return a candidate parameter,
+  depending on \code{cur.par}, as a vector. See
+  \code{\link{proposal.pb}} or \code{\link{proposal.nl}}
+  for templates.}
+
+  \item{prior}{The prior distribution: of type \cr
+  \code{function(type=c("r","d"), n ,par, Hpar, log,
+  dimData )}, where \code{dimData} is the dimension of the
+  sample space (\emph{e.g.}, for the two-dimensional
+  simplex (triangle), \code{dimData=3}. Should return
+  either a matrix with \code{n} rows containing a random
+  parameter sample generated under the prior (if \code{type
+  == "d"}), or the density of the parameter \code{par} (the
+  logarithm of the density if \code{log==TRUE}. See
+  \code{\link{prior.pb}} and \code{\link{prior.nl}} for
+  templates.}
+
+  \item{Hpar}{A list containing Hyper-parameters to be
+  passed to \code{prior}.}
+
+  \item{MCpar}{A list containing MC MC tuning parameters to
+  be passed to \code{proposal}.}
+}
+\value{
+  The log-acceptance probability.
+}
+\description{
+  Logarithm of the acceptance probability
+}
+\details{
+  \code{lAccept.ratio} is a functional:
+  \code{likelihood,proposal,prior} are user defined
+  functions. Should not be called directly, but through the
+  MCMC sampler \code{\link{posteriorMCMC}} generating the
+  posterior.
+}
+\keyword{internal}
+

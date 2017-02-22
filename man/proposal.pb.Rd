@@ -1,0 +1,51 @@
+\name{proposal.pb}
+\alias{proposal.pb}
+\title{PB model: proposal distribution}
+\usage{
+  proposal.pb(type = c("r", "d"), cur.par, prop.par, MCpar,
+    log = TRUE)
+}
+\arguments{
+  \item{type}{One of the character strings \code{"r"},
+  \code{"d"}}
+
+  \item{cur.par}{Current state of the chain}
+
+  \item{prop.par}{Candidate parameter}
+
+  \item{MCpar}{A list made of a single element: MC MC
+  parameter for the standard deviation of the log-normal
+  proposition, on the log scale. See \code{\link{pb.MCpar}}
+  for the default value}
+
+  \item{log}{Logical. Only used when \code{type =="d"}.
+  Should the result be returned on the log-scale ?}
+}
+\value{
+  Either the (log-)density of the proposal \code{prop.par},
+  given \code{cur.par} (if \code{type == "d"}), or a
+  proposal parameter (a vector), if \code{type =="r"}.
+}
+\description{
+  Density of the proposal distribution
+  \code{q(cur.par,prop.par)} and random generator for MC MC
+  algorithm in the PB model.
+}
+\details{
+  The components \code{prop.par[i]} of the proposal
+  parameter are generated independently, from the lognormal
+  distribution:
+
+  \code{prop.par = rlnorm(length(cur.par),
+  meanlog=log(cur.par),
+  sdlog=rep(MCpar$sdlog,length(cur.par)))}
+}
+\examples{
+\dontrun{ proposal.pb(type = "r",
+cur.par = rep(1,4), MCpar=get("pb.MCpar"))
+}
+\dontrun{ proposal.pb(type = "d", cur.par = rep(1,4),
+prop.par=rep(1.5,4), MCpar=get("pb.MCpar"))
+}
+}
+

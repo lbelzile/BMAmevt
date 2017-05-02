@@ -18,7 +18,6 @@
 ##' @docType package
 ##' @title Bayesian Model Averaging for  Multivariate Extremes
 ##' @author Anne Sabourin
-##' @importFrom grDevices dev.new gray
 ##' \email{sabourin@@math.univ-lyon1.fr}
 ##' @keywords package models multivariate htest
 ##' @seealso \code{evdbayes} 
@@ -138,7 +137,9 @@ NULL
 ##' @keywords dataset
 NULL
 
-
+##' @importFrom grDevices dev.new gray
+##' 
+NULL
 
 
 

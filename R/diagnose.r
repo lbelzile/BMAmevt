@@ -260,7 +260,7 @@ diagnose.PBNLpostsample <- function(obj,
     return(result.list)
   }
 
-##' @S3method print PBNLdiagnostic 
+##' @export print PBNLdiagnostic 
 print.PBNLdiagnostic <- function(x,...)
   {
     cat("\n Model:", x$model, "\n", sep="\t")

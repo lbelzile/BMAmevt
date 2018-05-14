@@ -15,7 +15,8 @@
 \bibliographystyle{plain}
 \usepackage{hyperref}
 \usepackage{url}
-
+\usepackage{geometry}
+\geometry{left = 1in, right = 1in}
 \setlength{\parskip}{\medskipamount}
 \setlength{\parindent}{2em}
 \addtolength{\textheight}{2ex}
@@ -46,7 +47,7 @@
 \newcommand{\BMA}{\textsc{BMA}}
 \newcommand{\PB}{\textsc{PB}}
 \newcommand{\NL}{\textsc{NL}}
-\newcommand\email{\begingroup \urlstyle{rm}\Url}
+\newcommand\email{\begingroup \urlstyle{tt}\Url}
 
 
 \title{ The \textsf{BMAmevt} package: \\
@@ -67,8 +68,9 @@ Multivariate Extremes}
 %spectral Measure} 
 %\VignettePackage{BMAmevt}
 
-\usepackage{Sweave}
+
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \maketitle
 
@@ -79,19 +81,16 @@ Multivariate Extremes}
  % \email{sabourin@math.univ-lyon1.fr}
 %  \normalsize
 
-\email{sabourin@math.univ-lyon1.fr}\\
-\email{anne.sabourin@lsce.ipsl.fr}\\
+\email{	anne.sabourin@telecom-paristech.fr}\\
 \email{annesab1@gmail.com}\\					
   \vspace{0.2cm}
-  Université de Lyon I , France \\
-  Laboratoire des Sciences du Climat et de l'Environnement, Saclay,
-  France.  \\
+  LTCI, Télécom ParisTech\\Université Paris-Saclay, France 
   \vspace{0.2cm}
  \end{center}
 
 \section{Overview}
 
-This package  is a  'Bayesian Model
+This package  is a  `Bayesian Model
 Averaging' (\BMA) toolkit. The main purpose is the estimation of  the
 dependence structure between  the largest values of multivariate
 data, using the probabilistic framework of  Multivariate Extreme
@@ -101,8 +100,7 @@ likelihoods, see below) could be
 used in any other statistical context.  
 
 This package has been developped to implement the methods proposed in 
-\cite{Sabourin12}.% , submitted to Biometrika. A preprint  is available   
-% \href{http://www.lsce.ipsl.fr/Phocea/Pisp/index.php?nom=anne.sabourin}{here}. 
+\cite{Sabourin12,Sabourin14}.
 
 % The  main  framework of multivariate extreme value theory is well-known
 % in terms of probability: The dependence structure among very high
@@ -138,7 +136,7 @@ Plotting tools are also provided for the three dimensional case
 and level sets of angular measures.
 
 Any parametric  model may be passed as argument. To
-'plug' one's  favorite model into the package, one  only needs to  define
+`plug' one's  favorite model into the package, one  only needs to  define
 \begin{itemize}
 \item The likelihood function of the  model (a parametric density on
   the simplex or any other finite dimensional sample space),
@@ -149,7 +147,7 @@ By way of example, two parametric  models are pre-implemented: the
 Pairwise Beta (\PB) model , valid in
 arbitrary 
 `` moderate''  dimension\footnote{It has been tested on five
-  dimensional data sets in \cite{cooley2010pairwise}. It would be computationally  unrealistic   to implement our methods to much higher dimensions.}, and a specific 'Nested Asymmetric' extension of the logistic model 
+  dimensional data sets in \cite{cooley2010pairwise}. It would be computationally  unrealistic   to implement our methods to much higher dimensions.}, and a specific `Nested Asymmetric' extension of the logistic model 
 \cite{gumbel1960distributions}), only valid with three dimensional
 data, which we refer to as the \NL\ model.  This nested extension  
  was cited as an example in \cite{tawn1990modelling} and
@@ -329,7 +327,7 @@ averaging estimates will be  the same as selecting the \NL ~estimate.
 
 This example is not an exceptional case: with increasing sample size, 
 the BMA is bound to become a selecting tool. In the asymptotic limit,
-the model which minimizes the Kullback-Leibler distance to the 'truth'
+the model which minimizes the Kullback-Leibler distance to the `truth'
 will be chosen. See \emph{e.g.} \cite{berk1966limiting,
   kleijn2006misspecification}.  
 

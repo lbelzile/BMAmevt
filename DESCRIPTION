@@ -2,10 +2,10 @@ Package: BMAmevt
 Type: Package
 Title: Multivariate Extremes: Bayesian Estimation of the Spectral
         Measure
-Version: 1.0.1
-Date: 2017-02-22
+Version: 1.0.2
+Date: 2018-05-14
 Author: Anne Sabourin
-Maintainer: Leo Belzile <leo.belzile@epfl.ch>
+Maintainer: Leo Belzile <belzilel@gmail.com>
 Depends: stats, utils, coda
 Description: Toolkit for Bayesian estimation of the dependence structure
     in Multivariate Extreme Value parametric models.
@@ -13,7 +13,7 @@ License: GPL (>= 2)
 LazyData: no
 NeedsCompilation: yes
 Repository: CRAN
-Collate: 
+Collate:
     'BMAmevt-package.R'
     'Laplace.evt.r'
     'MCpriorIntFun.nl.r'

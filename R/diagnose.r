@@ -13,7 +13,7 @@ diagnose <- function(obj, ...)
 ## @param save.directory The directory where the result is to be saved, without trailing slash.
 
 
-##' The method  issues several convergence diagnostics, in the particular case when the PB or the NL model is used. The code may be easily modified for other angular models. 
+##' The method issues several convergence diagnostics, in the particular case when the PB or the NL model is used. The code may be easily modified for other angular models. 
 ##'
 ##' @title Diagnostics for the MCMC output in the PB and NL models.
 ##' @param obj an object of class \code{postsample}:  posterior sample, as produced by
@@ -47,7 +47,6 @@ diagnose <- function(obj, ...)
 ##' \item{sample.sd}{the posterior standard deviation of the original parameters}
 ##' }
 ##' @export
-##' @method diagnose PBNLpostsample
 diagnose.PBNLpostsample <- function(obj,
                                     true.par=NULL,
                                     from =NULL, 
@@ -260,7 +259,7 @@ diagnose.PBNLpostsample <- function(obj,
     return(result.list)
   }
 
-##' @export print PBNLdiagnostic 
+##' @export 
 print.PBNLdiagnostic <- function(x,...)
   {
     cat("\n Model:", x$model, "\n", sep="\t")

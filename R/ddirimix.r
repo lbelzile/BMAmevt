@@ -32,7 +32,7 @@
 ##' The error tolerance is set to \code{1e-8}
 ##' in this package.
 ##' @param par The parameter list for the Dirichlet mixture model.
-##'  @param wei Optional. If present, overrides the value of
+##' @param wei Optional. If present, overrides the value of
 ##' \code{par$wei}.
 ##' @param Mu Optional. If present, overrides the value of
 ##' \code{par$Mu}.

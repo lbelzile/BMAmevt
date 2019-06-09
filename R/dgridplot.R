@@ -16,7 +16,7 @@
 ##' @param breaks Set of breakpoints for the gray scale colors.
 ##' See \code{\link[graphics]{image}}
 ##' @param levels Levels to which plot the contour lines. See \code{\link[graphics]{contour}}
-##'  @param labcex \code{cex} for contour labeling.
+##' @param labcex \code{cex} for contour labeling.
 ##' See  \code{\link[graphics]{contour}}.
 ##' @param col.lines The color to be used for the contour lines.
 ##' @param background Logical. Should a the background be filled

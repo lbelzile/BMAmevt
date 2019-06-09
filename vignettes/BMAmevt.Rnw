@@ -5,16 +5,9 @@
 
 \usepackage[english]{babel}
 \usepackage{amsthm, amssymb, amstext}
-
-\usepackage{color}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{mathrsfs}
-\usepackage{cases}
 \usepackage{natbib}
 \bibliographystyle{plain}
 \usepackage{hyperref}
-\usepackage{url}
 \usepackage{geometry}
 \geometry{left = 1in, right = 1in}
 \setlength{\parskip}{\medskipamount}

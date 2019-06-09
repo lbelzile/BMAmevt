@@ -1,7 +1,7 @@
 
 ##' @import utils
 ##' @import coda
-##' @useDynLib BMAmevt
+##' @useDynLib BMAmevt, .registration=TRUE
 .onAttach=function(libname,pkgname = "BMAmevt")
 {
 ## data(frechetdat)

@@ -3,7 +3,7 @@
 ##' The integration is made \emph{via} \code{\link{rect.integrate}}: The discretization grid corresponding to the two matrices must be constructed
 ##' with \code{discretize(npoints, eps, equi=FALSE)}. 
 ##' @title Logarithmic score and \eqn{L^2} distance  between two densities on the simplex (trivariate case).
-##'  @param true.dens A \code{npoints*npoints} matrix: The reference density, typically the distribution from which data was simulated. Must be a valid \code{density} argument to be passed to \code{dgridplot}, with \code{equi=FALSE}. 
+##' @param true.dens A \code{npoints*npoints} matrix: The reference density, typically the distribution from which data was simulated. Must be a valid \code{density} argument to be passed to \code{dgridplot}, with \code{equi=FALSE}. 
 ##' @param est.dens The estimated density: of the same type as \code{true.dens}. 
 ##' @param npoints Number of grid points  used to construct the density matrices (see \code{\link{discretize}}).
 ##' @param eps Minimum distance from a grid point to the simplex boundary (see \code{\link{discretize}}).

@@ -299,7 +299,7 @@ posteriorMCMC <-
     return(res)
   }             
 
-##' @export print postsample 
+##' @export
 print.postsample <- function(x, ...)
   {
     cat("\n A posterior sample of class (S3) \"postsample\" \n ")

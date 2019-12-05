@@ -3,10 +3,10 @@ Type: Package
 Title: Multivariate Extremes: Bayesian Estimation of the Spectral Measure
 Version: 1.0.3
 Date: 2019-06-09
-Author: Anne Sabourin
-Maintainer: Leo Belzile <belzilel@gmail.com>
+Author@R: c(person("Leo", "Belzile", role = "cre", email = "belzilel@gmail.com"),
+              person("Anne", " Sabourin", role = "aut", email = "anne.sabourin@telecom-paristech.fr", comment = c(ORCID = "0000-0002-5096-9157")))
 Depends: stats, utils, coda
-Description: Toolkit for Bayesian estimation of the dependence structure in multivariate extreme value parametric models.
+Description: Toolkit for Bayesian estimation of the dependence structure in multivariate extreme value parametric models, following Sabourin and Naveau (2014) <doi:10.1016/j.csda.2013.04.021> and Sabourin, Naveau and Fougeres (2013) <doi:10.1007/s10687-012-0163-0>.
 License: GPL (>= 2)
 LazyData: no
 NeedsCompilation: yes

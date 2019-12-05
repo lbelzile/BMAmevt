@@ -84,7 +84,7 @@ laplace.evt <- function(mode=NULL, npar=4, likelihood, prior, Hpar,
     Inverse.test <- try(invHess.t <-  chol2inv(chol(-hessian.mode)),#, 
                         silent = TRUE)
 
-    if (class(Inverse.test) != "try-error") {
+    if (!inherits(Inverse.test, "try-error")) {
       invHess <- Inverse.test
       diag(invHess) <- ifelse(diag(invHess) <= 0, .Machine$double.eps, 
                              diag(invHess))

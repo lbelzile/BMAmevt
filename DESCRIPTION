@@ -1,8 +1,8 @@
 Package: BMAmevt
 Type: Package
 Title: Multivariate Extremes: Bayesian Estimation of the Spectral Measure
-Version: 1.0.3
-Date: 2019-06-09
+Version: 1.0.4
+Date: 2019-12-17
 Author@R: c(person("Leo", "Belzile", role = "cre", email = "belzilel@gmail.com"),
               person("Anne", " Sabourin", role = "aut", email = "anne.sabourin@telecom-paristech.fr", comment = c(ORCID = "0000-0002-5096-9157")))
 Depends: stats, utils, coda

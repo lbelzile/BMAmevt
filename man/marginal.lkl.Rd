@@ -4,9 +4,17 @@
 \alias{marginal.lkl}
 \title{Marginal model likelihood}
 \usage{
-marginal.lkl(dat, likelihood, prior, Nsim = 300, displ = TRUE, Hpar,
-  Nsim.min = Nsim, precision = 0, show.progress = floor(seq(1, Nsim,
-  length.out = 20)))
+marginal.lkl(
+  dat,
+  likelihood,
+  prior,
+  Nsim = 300,
+  displ = TRUE,
+  Hpar,
+  Nsim.min = Nsim,
+  precision = 0,
+  show.progress = floor(seq(1, Nsim, length.out = 20))
+)
 }
 \arguments{
 \item{dat}{The angular data set relative to which the marginal model likelihood is to be computed}

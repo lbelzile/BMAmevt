@@ -4,8 +4,13 @@
 \alias{proposal.nl}
 \title{NL3  model: proposal distribution.}
 \usage{
-proposal.nl(type = c("r", "d"), cur.par, prop.par,
-  MCpar = get("nl.MCpar"), log = TRUE)
+proposal.nl(
+  type = c("r", "d"),
+  cur.par,
+  prop.par,
+  MCpar = get("nl.MCpar"),
+  log = TRUE
+)
 }
 \arguments{
 \item{type}{One of the character strings \code{"r"} or \code{"d"}.}
@@ -26,7 +31,7 @@ Density of the proposal distribution \code{q(cur.par,prop.par)} and random gener
 }
 \details{
 The two components of proposal parameter
-\code{(alpha*, beta12*, beta13*, beta23*)}  are generated independently, under a beta distribution with mode at the current parameter's value.
+\code{(alpha*, beta12*, beta13*, beta23*)}  are generated independently, under a beta distribution with mode at the current parameter's value. 
 
 Let  \eqn{\epsilon =} \code{MCpar$eps.recentre}. To generate \code{alpha*}, given the current state \code{alpha(t)},
 let \eqn{m(t) = \epsilon /2 + (1-\epsilon) * \alpha(t)} be the mean

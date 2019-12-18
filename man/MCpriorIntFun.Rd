@@ -4,10 +4,18 @@
 \alias{MCpriorIntFun}
 \title{Generic Monte-Carlo integration of a function under the prior distribution}
 \usage{
-MCpriorIntFun(Nsim = 200, prior, Hpar, dimData, FUN = function(par,
-  ...) {     as.vector(par) }, store = TRUE,
+MCpriorIntFun(
+  Nsim = 200,
+  prior,
+  Hpar,
+  dimData,
+  FUN = function(par, ...) {     as.vector(par) },
+  store = TRUE,
   show.progress = floor(seq(1, Nsim, length.out = 20)),
-  Nsim.min = Nsim, precision = 0, ...)
+  Nsim.min = Nsim,
+  precision = 0,
+  ...
+)
 }
 \arguments{
 \item{Nsim}{Maximum number of iterations}

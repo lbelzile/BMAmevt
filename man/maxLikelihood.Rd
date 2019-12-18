@@ -4,8 +4,16 @@
 \alias{maxLikelihood}
 \title{Maximum likelihood optimization}
 \usage{
-maxLikelihood(data, model, init = NULL, maxit = 500,
-  method = "L-BFGS-B", hess = T, link, unlink)
+maxLikelihood(
+  data,
+  model,
+  init = NULL,
+  maxit = 500,
+  method = "L-BFGS-B",
+  hess = T,
+  link,
+  unlink
+)
 }
 \arguments{
 \item{data}{The angular data to be used for inference}

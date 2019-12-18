@@ -4,9 +4,18 @@
 \alias{posterior.predictive3D}
 \title{Posterior predictive density on the simplex, for three-dimensional extreme value  models.}
 \usage{
-posterior.predictive3D(post.sample, densityGrid, from = post.sample$Nbin
-  + 1, to = post.sample$Nsim, thin = 40, npoints = 40,
-  eps = 10^(-3), equi = T, displ = T, ...)
+posterior.predictive3D(
+  post.sample,
+  densityGrid,
+  from = post.sample$Nbin + 1,
+  to = post.sample$Nsim,
+  thin = 40,
+  npoints = 40,
+  eps = 10^(-3),
+  equi = T,
+  displ = T,
+  ...
+)
 }
 \arguments{
 \item{post.sample}{A posterior sample as returned by \code{\link{posteriorMCMC}}}

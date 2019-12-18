@@ -7,13 +7,29 @@
 \title{Posterior predictive densities in the three dimensional
 PB, NL and NL3  models}
 \usage{
-posterior.predictive.nl(post.sample, from = post.sample$Nbin + 1,
-  to = post.sample$Nsim, thin = 50, npoints = 40, eps = 0.001,
-  equi = T, displ = T, ...)
+posterior.predictive.nl(
+  post.sample,
+  from = post.sample$Nbin + 1,
+  to = post.sample$Nsim,
+  thin = 50,
+  npoints = 40,
+  eps = 0.001,
+  equi = T,
+  displ = T,
+  ...
+)
 
-posterior.predictive.pb(post.sample, from = post.sample$Nbin + 1,
-  to = post.sample$Nsim, thin = 50, npoints = 40, eps = 10^(-3),
-  equi = T, displ = T, ...)
+posterior.predictive.pb(
+  post.sample,
+  from = post.sample$Nbin + 1,
+  to = post.sample$Nsim,
+  thin = 50,
+  npoints = 40,
+  eps = 10^(-3),
+  equi = T,
+  displ = T,
+  ...
+)
 }
 \arguments{
 \item{post.sample}{A posterior sample as returned by \code{\link{posteriorMCMC}}}

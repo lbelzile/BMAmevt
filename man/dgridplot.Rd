@@ -4,12 +4,22 @@
 \alias{dgridplot}
 \title{Image and/or Contour plots of  spectral densities in  trivariate  extreme value  models}
 \usage{
-dgridplot(density = matrix(5 * sin(1/73 * (1:(40 * 40)))^2, ncol = 40,
-  nrow = 40), eps = 10^(-3), equi = TRUE, add = FALSE,
-  breaks = seq(-0.01, 5.1, length.out = 1000), levels = seq(0, 6,
-  length.out = 13), col.lines = "black", labcex = 0.8,
-  background = FALSE, col.polygon = gray(0.5), lab1 = "w1",
-  lab2 = "w2", lab3 = "w3", ...)
+dgridplot(
+  density = matrix(5 * sin(1/73 * (1:(40 * 40)))^2, ncol = 40, nrow = 40),
+  eps = 10^(-3),
+  equi = TRUE,
+  add = FALSE,
+  breaks = seq(-0.01, 5.1, length.out = 1000),
+  levels = seq(0, 6, length.out = 13),
+  col.lines = "black",
+  labcex = 0.8,
+  background = FALSE,
+  col.polygon = gray(0.5),
+  lab1 = "w1",
+  lab2 = "w2",
+  lab3 = "w3",
+  ...
+)
 }
 \arguments{
 \item{density}{A \code{npoints*npoints} matrix containing the

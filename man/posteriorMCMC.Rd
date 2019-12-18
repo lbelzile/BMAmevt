@@ -4,14 +4,26 @@
 \alias{posteriorMCMC}
 \title{MC MC sampler for parametric spectral measures}
 \usage{
-posteriorMCMC(prior = function(type = c("r", "d"), n, par, Hpar, log,
-  dimData) {     NULL }, proposal = function(type = c("r", "d"), cur.par,
-  prop.par, MCpar, log) {     NULL }, likelihood = function(x, par, log,
-  vectorial) {     NULL }, Nsim, dat, Hpar, MCpar, Nbin = 0,
-  par.start = NULL, show.progress = floor(seq(1, Nsim, length.out =
-  20)), seed = NULL, kind = "Mersenne-Twister", save = FALSE,
-  class = NULL, name.save = NULL, save.directory = "~",
-  name.dat = "", name.model = "")
+posteriorMCMC(
+  prior = function(type = c("r", "d"), n, par, Hpar, log, dimData) {     NULL },
+  proposal = function(type = c("r", "d"), cur.par, prop.par, MCpar, log) {     NULL },
+  likelihood = function(x, par, log, vectorial) {     NULL },
+  Nsim,
+  dat,
+  Hpar,
+  MCpar,
+  Nbin = 0,
+  par.start = NULL,
+  show.progress = floor(seq(1, Nsim, length.out = 20)),
+  seed = NULL,
+  kind = "Mersenne-Twister",
+  save = FALSE,
+  class = NULL,
+  name.save = NULL,
+  save.directory = "~",
+  name.dat = "",
+  name.model = ""
+)
 }
 \arguments{
 \item{prior}{The prior distribution: of type \cr

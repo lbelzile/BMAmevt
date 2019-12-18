@@ -4,8 +4,18 @@
 \alias{lAccept.ratio}
 \title{Acceptance probability in the MC MC algorithm.}
 \usage{
-lAccept.ratio(cur.par, prop.par, llh.cur, lprior.cur, dat, likelihood,
-  proposal, prior, Hpar, MCpar)
+lAccept.ratio(
+  cur.par,
+  prop.par,
+  llh.cur,
+  lprior.cur,
+  dat,
+  likelihood,
+  proposal,
+  prior,
+  Hpar,
+  MCpar
+)
 }
 \arguments{
 \item{cur.par}{The current parameter in the Markov chain}

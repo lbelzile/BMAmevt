@@ -4,8 +4,14 @@
 \alias{excessProb.condit.pb}
 \title{Estimates the probability of joint excess, given a PB parameter.}
 \usage{
-excessProb.condit.pb(par = c(0.8, 1, 2, 3), thres = rep(500, 5),
-  precision = 0.1, Nmin = 200, displ = FALSE, add = FALSE)
+excessProb.condit.pb(
+  par = c(0.8, 1, 2, 3),
+  thres = rep(500, 5),
+  precision = 0.1,
+  Nmin = 200,
+  displ = FALSE,
+  add = FALSE
+)
 }
 \arguments{
 \item{par}{the DM parameter, as a list}

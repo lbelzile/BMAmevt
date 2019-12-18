@@ -6,11 +6,23 @@
 \title{Angular density/likelihood function in the Dirichlet Mixture
 model.}
 \usage{
-ddirimix(x = c(0.1, 0.2, 0.7), par, wei = par$wei, Mu = par$Mu,
-  lnu = par$lnu, log = FALSE, vectorial = FALSE)
+ddirimix(
+  x = c(0.1, 0.2, 0.7),
+  par,
+  wei = par$wei,
+  Mu = par$Mu,
+  lnu = par$lnu,
+  log = FALSE,
+  vectorial = FALSE
+)
 
-rdirimix(n = 10, par = get("dm.expar.D3k3"), wei = par$wei,
-  Mu = par$Mu, lnu = par$lnu)
+rdirimix(
+  n = 10,
+  par = get("dm.expar.D3k3"),
+  wei = par$wei,
+  Mu = par$Mu,
+  lnu = par$lnu
+)
 }
 \arguments{
 \item{x}{An angular data set which may be reduced to a single point: 

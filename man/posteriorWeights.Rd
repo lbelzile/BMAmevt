@@ -4,12 +4,20 @@
 \alias{posteriorWeights}
 \title{Posterior model weights}
 \usage{
-posteriorWeights(dat, HparList = list(get("pb.Hpar"), get("nl.Hpar")),
+posteriorWeights(
+  dat,
+  HparList = list(get("pb.Hpar"), get("nl.Hpar")),
   lklList = list(get("dpairbeta"), get("dnestlog")),
   priorList = list(get("prior.pb"), get("prior.nl")),
-  priorweights = c(0.5, 0.5), Nsim = 20000, Nsim.min = 10000,
-  precision = 0.05, seed = 1, kind = "Mersenne-Twister",
-  show.progress = floor(seq(1, Nsim, length.out = 10)), displ = FALSE)
+  priorweights = c(0.5, 0.5),
+  Nsim = 20000,
+  Nsim.min = 10000,
+  precision = 0.05,
+  seed = 1,
+  kind = "Mersenne-Twister",
+  show.progress = floor(seq(1, Nsim, length.out = 10)),
+  displ = FALSE
+)
 }
 \arguments{
 \item{dat}{The angular data set relative to which the marginal model likelihood is to be computed}

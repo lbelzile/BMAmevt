@@ -5,13 +5,25 @@
 \alias{marginal.lkl.pb}
 \title{Marginal likelihoods of the PB and NL models.}
 \usage{
-marginal.lkl.nl(dat, Nsim = 10000, displ = TRUE,
-  Hpar = get("nl.Hpar"), Nsim.min = Nsim, precision = 0,
-  show.progress = floor(seq(1, Nsim, length.out = 20)))
+marginal.lkl.nl(
+  dat,
+  Nsim = 10000,
+  displ = TRUE,
+  Hpar = get("nl.Hpar"),
+  Nsim.min = Nsim,
+  precision = 0,
+  show.progress = floor(seq(1, Nsim, length.out = 20))
+)
 
-marginal.lkl.pb(dat, Nsim = 10000, displ = TRUE,
-  Hpar = get("pb.Hpar"), Nsim.min = Nsim, precision = 0,
-  show.progress = floor(seq(1, Nsim, length.out = 20)))
+marginal.lkl.pb(
+  dat,
+  Nsim = 10000,
+  displ = TRUE,
+  Hpar = get("pb.Hpar"),
+  Nsim.min = Nsim,
+  precision = 0,
+  show.progress = floor(seq(1, Nsim, length.out = 20))
+)
 }
 \arguments{
 \item{dat}{The angular data set relative to which the marginal model likelihood is to be computed}

@@ -5,14 +5,28 @@
 \alias{MCpriorIntFun.pb}
 \title{Generic Monte-Carlo integration  under the prior distribution in the PB and NL  models.}
 \usage{
-MCpriorIntFun.nl(Nsim = 200, FUN = function(par, ...) {     par },
-  store = TRUE, Hpar = get("nl.Hpar"), show.progress = floor(seq(1,
-  Nsim, length.out = 20)), Nsim.min = Nsim, precision = 0, ...)
-
-MCpriorIntFun.pb(Nsim = 200, Hpar = get("pb.Hpar"), dimData = 3,
-  FUN = function(par, ...) {     as.vector(par) }, store = TRUE,
+MCpriorIntFun.nl(
+  Nsim = 200,
+  FUN = function(par, ...) {     par },
+  store = TRUE,
+  Hpar = get("nl.Hpar"),
   show.progress = floor(seq(1, Nsim, length.out = 20)),
-  Nsim.min = Nsim, precision = 0, ...)
+  Nsim.min = Nsim,
+  precision = 0,
+  ...
+)
+
+MCpriorIntFun.pb(
+  Nsim = 200,
+  Hpar = get("pb.Hpar"),
+  dimData = 3,
+  FUN = function(par, ...) {     as.vector(par) },
+  store = TRUE,
+  show.progress = floor(seq(1, Nsim, length.out = 20)),
+  Nsim.min = Nsim,
+  precision = 0,
+  ...
+)
 }
 \arguments{
 \item{Nsim}{Maximum number of iterations}

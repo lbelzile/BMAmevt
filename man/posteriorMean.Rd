@@ -4,8 +4,15 @@
 \alias{posteriorMean}
 \title{Posterior predictive density on the simplex, for three-dimensional extreme value  models.}
 \usage{
-posteriorMean(post.sample, FUN = function(par, ...) {     par },
-  from = NULL, to = NULL, thin = 50, displ = TRUE, ...)
+posteriorMean(
+  post.sample,
+  FUN = function(par, ...) {     par },
+  from = NULL,
+  to = NULL,
+  thin = 50,
+  displ = TRUE,
+  ...
+)
 }
 \arguments{
 \item{post.sample}{A posterior sample as returned by \code{\link{posteriorMCMC}}}

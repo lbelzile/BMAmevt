@@ -4,8 +4,15 @@
 \alias{add.frame}
 \title{Adds graphical elements to a plot of the two dimensional simplex.}
 \usage{
-add.frame(equi = FALSE, lab1 = "w1", lab2 = "w2", lab3 = "w3",
-  npoints = 60, col.polygon = "black", axes = TRUE)
+add.frame(
+  equi = FALSE,
+  lab1 = "w1",
+  lab2 = "w2",
+  lab3 = "w3",
+  npoints = 60,
+  col.polygon = "black",
+  axes = TRUE
+)
 }
 \arguments{
 \item{equi}{logical. Is the simplex represented as an equilateral triangle (if \code{TRUE}) or a right triangle (if \code{FALSE}) ?}

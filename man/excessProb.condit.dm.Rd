@@ -4,8 +4,13 @@
 \alias{excessProb.condit.dm}
 \title{Probability of joint threshold exceedance, in the Dirichlet Mixture model,  given a DM parameter.}
 \usage{
-excessProb.condit.dm(N = 100, par = get("dm.expar.D3k3"),
-  thres = rep(100, 3), plot = FALSE, add = FALSE)
+excessProb.condit.dm(
+  N = 100,
+  par = get("dm.expar.D3k3"),
+  thres = rep(100, 3),
+  plot = FALSE,
+  add = FALSE
+)
 }
 \arguments{
 \item{N}{The number of MC iterations to be performed}

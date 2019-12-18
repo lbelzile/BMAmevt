@@ -4,8 +4,17 @@
 \alias{laplace.evt}
 \title{Laplace approximation of  a model marginal likelihood by Laplace approximation.}
 \usage{
-laplace.evt(mode = NULL, npar = 4, likelihood, prior, Hpar, data, link,
-  unlink, method = "L-BFGS-B")
+laplace.evt(
+  mode = NULL,
+  npar = 4,
+  likelihood,
+  prior,
+  Hpar,
+  data,
+  link,
+  unlink,
+  method = "L-BFGS-B"
+)
 }
 \arguments{
 \item{mode}{The parameter vector (on the \dQuote{unlinked} scale, \emph{i.e.} before transformation to the real line)

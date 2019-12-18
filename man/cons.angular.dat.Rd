@@ -4,10 +4,20 @@
 \alias{cons.angular.dat}
 \title{Angular data set generation from unit Frechet data.}
 \usage{
-cons.angular.dat(coordinates = c(1, 2, 3),
-  frechetDat = get("frechetdat"), n = 100, displ = TRUE,
-  invisible = TRUE, add = FALSE, lab1 = "w1", lab2 = "w2",
-  lab3 = "w3", npoints = 60, col.polygon = "white", ...)
+cons.angular.dat(
+  coordinates = c(1, 2, 3),
+  frechetDat = get("frechetdat"),
+  n = 100,
+  displ = TRUE,
+  invisible = TRUE,
+  add = FALSE,
+  lab1 = "w1",
+  lab2 = "w2",
+  lab3 = "w3",
+  npoints = 60,
+  col.polygon = "white",
+  ...
+)
 }
 \arguments{
 \item{coordinates}{Index vector of the columns in \code{frechetDat} to be retained to construct the angular data set.}

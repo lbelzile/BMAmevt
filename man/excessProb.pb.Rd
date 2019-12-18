@@ -4,9 +4,18 @@
 \alias{excessProb.pb}
 \title{Estimates the probability of joint excess (Frechet margins)}
 \usage{
-excessProb.pb(post.sample, Nmin.intern = 100, precision = 0.05,
-  from = NULL, to = NULL, thin = 100, displ = FALSE,
-  thres = rep(500, 5), known.par = FALSE, true.par)
+excessProb.pb(
+  post.sample,
+  Nmin.intern = 100,
+  precision = 0.05,
+  from = NULL,
+  to = NULL,
+  thin = 100,
+  displ = FALSE,
+  thres = rep(500, 5),
+  known.par = FALSE,
+  true.par
+)
 }
 \arguments{
 \item{post.sample}{The  posterior sample.}

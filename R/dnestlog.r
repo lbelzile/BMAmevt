@@ -3,17 +3,14 @@
 ##' @rdname dpairbeta
 dnestlog <- function(x=rbind(c(0.1,0.3,0.6),c(0.3,0.3,0.4)) ,
         par=c(0.5,0.5,0.2,0.3),
-        log=FALSE, vectorial = T)
+        log=FALSE, vectorial = TRUE)
   {
   xvect = as.double(as.vector(t(x) ))
   
   if(is.vector(x))
     { dim = as.integer( length(x) ) 
       n = as.integer(1)
-    }
-  
-  else
-    {
+    } else  {
       dim = as.integer(ncol(x) )
       n = as.integer(nrow(x) )
     }
@@ -27,9 +24,7 @@ dnestlog <- function(x=rbind(c(0.1,0.3,0.6),c(0.3,0.3,0.4)) ,
   if(vectorial)
     {
       result=double(n)
-    }
-  else
-    {
+    } else {
       result=double(1)
     }
 

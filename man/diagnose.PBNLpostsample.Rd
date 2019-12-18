@@ -7,10 +7,20 @@
 \usage{
 diagnose(obj, ...)
 
-\method{diagnose}{PBNLpostsample}(obj, true.par = NULL, from = NULL,
-  to = NULL, autocor.max = 0.2, default.thin = 50,
-  xlim.density = c(-4, 4), ylim.density = NULL, plot = TRUE,
-  predictive = FALSE, save = TRUE, ...)
+\method{diagnose}{PBNLpostsample}(
+  obj,
+  true.par = NULL,
+  from = NULL,
+  to = NULL,
+  autocor.max = 0.2,
+  default.thin = 50,
+  xlim.density = c(-4, 4),
+  ylim.density = NULL,
+  plot = TRUE,
+  predictive = FALSE,
+  save = TRUE,
+  ...
+)
 }
 \arguments{
 \item{obj}{an object of class \code{postsample}:  posterior sample, as produced by

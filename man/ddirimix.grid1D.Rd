@@ -4,10 +4,20 @@
 \alias{ddirimix.grid1D}
 \title{Univariate projection or marginalization of a  Dirichlet mixture density on  on \code{[0,1]}}
 \usage{
-ddirimix.grid1D(par = get("dm.expar.D2k4"), wei = par$wei,
-  Mu = par$Mu, lnu = par$lnu, npoints = 30, eps = 10^(-3),
-  coord = c(1, 2), marginal = TRUE, invisible = TRUE, displ = TRUE,
-  add = FALSE, ...)
+ddirimix.grid1D(
+  par = get("dm.expar.D2k4"),
+  wei = par$wei,
+  Mu = par$Mu,
+  lnu = par$lnu,
+  npoints = 30,
+  eps = 10^(-3),
+  coord = c(1, 2),
+  marginal = TRUE,
+  invisible = TRUE,
+  displ = TRUE,
+  add = FALSE,
+  ...
+)
 }
 \arguments{
 \item{par}{The parameter list for the Dirichlet mixture model.}

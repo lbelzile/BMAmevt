@@ -4,8 +4,16 @@
 \alias{excessProb.nl}
 \title{Posterior distribution the probability of joint threshold excess, in the NL model.}
 \usage{
-excessProb.nl(post.sample, from = NULL, to = NULL, thin = 100,
-  thres = rep(100, 3), known.par = FALSE, true.par, displ = FALSE)
+excessProb.nl(
+  post.sample,
+  from = NULL,
+  to = NULL,
+  thin = 100,
+  thres = rep(100, 3),
+  known.par = FALSE,
+  true.par,
+  displ = FALSE
+)
 }
 \arguments{
 \item{post.sample}{The posterior sample, as returned by \code{posteriorMCMC}}

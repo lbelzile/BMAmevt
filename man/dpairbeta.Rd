@@ -8,14 +8,26 @@
 \alias{rpairbeta}
 \title{Pairwise Beta (PB) and Nested Asymmetric Logistic (NL) distributions}
 \usage{
-dnestlog(x = rbind(c(0.1, 0.3, 0.6), c(0.3, 0.3, 0.4)), par = c(0.5,
-  0.5, 0.2, 0.3), log = FALSE, vectorial = T)
+dnestlog(
+  x = rbind(c(0.1, 0.3, 0.6), c(0.3, 0.3, 0.4)),
+  par = c(0.5, 0.5, 0.2, 0.3),
+  log = FALSE,
+  vectorial = TRUE
+)
 
-dpairbeta(x, par = c(1, rep(2, choose(4, 2) + 1)), log = FALSE,
-  vectorial = TRUE)
+dpairbeta(
+  x,
+  par = c(1, rep(2, choose(4, 2) + 1)),
+  log = FALSE,
+  vectorial = TRUE
+)
 
-rnestlog(n = 5, par = c(0.2, 0.3, 0.4, 0.5), threshold = 1000,
-  return.points = FALSE)
+rnestlog(
+  n = 5,
+  par = c(0.2, 0.3, 0.4, 0.5),
+  threshold = 1000,
+  return.points = FALSE
+)
 
 rpairbeta(n = 1, dimData = 3, par = c(1, rep(1, 3)))
 }

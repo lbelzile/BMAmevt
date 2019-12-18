@@ -4,10 +4,20 @@
 \alias{ddirimix.grid}
 \title{Plots the Dirichlet mixture density on a discretization grid}
 \usage{
-ddirimix.grid(par = get("dm.expar.D3k3"), wei = par$wei, Mu = par$Mu,
-  lnu = par$lnu, npoints = 30, eps = 10^(-3), equi = TRUE,
-  marginal = TRUE, coord = c(1, 2, 3), invisible = TRUE,
-  displ = TRUE, ...)
+ddirimix.grid(
+  par = get("dm.expar.D3k3"),
+  wei = par$wei,
+  Mu = par$Mu,
+  lnu = par$lnu,
+  npoints = 30,
+  eps = 10^(-3),
+  equi = TRUE,
+  marginal = TRUE,
+  coord = c(1, 2, 3),
+  invisible = TRUE,
+  displ = TRUE,
+  ...
+)
 }
 \arguments{
 \item{par}{The parameter list for the Dirichlet mixture model.}

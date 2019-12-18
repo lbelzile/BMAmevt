@@ -5,11 +5,25 @@
 \alias{dpairbeta.grid}
 \title{PB and NL spectral  densities on the two-dimensional simplex}
 \usage{
-dnestlog.grid(par, npoints = 50, eps = 0.001, equi = TRUE,
-  displ = TRUE, invisible = TRUE, ...)
+dnestlog.grid(
+  par,
+  npoints = 50,
+  eps = 0.001,
+  equi = TRUE,
+  displ = TRUE,
+  invisible = TRUE,
+  ...
+)
 
-dpairbeta.grid(par, npoints = 50, eps = 0.001, equi = TRUE,
-  displ = TRUE, invisible = TRUE, ...)
+dpairbeta.grid(
+  par,
+  npoints = 50,
+  eps = 0.001,
+  equi = TRUE,
+  displ = TRUE,
+  invisible = TRUE,
+  ...
+)
 }
 \arguments{
 \item{par}{The parameter for the Pairwise Beta or the Nested Logistic  density.

@@ -188,6 +188,9 @@ posteriorMCMC <-
     emp.variance.unNorm=rep(0,leng)
 
     stored.vals <- matrix(0,nrow=Nsim-Nbin,ncol=leng)
+    if(!is.null(names(par.start)) & length(names(par.start)) == leng){
+     colnames(stored.vals) <- names(par.start)
+    }
     llh <- double(Nsim-Nbin)
     lprior <- double(Nsim-Nbin)
     stored.vals[1,]=cur.par

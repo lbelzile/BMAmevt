@@ -59,9 +59,7 @@ dpairbeta<-
   if(is.vector(x))
     { p = as.integer( length(x) ) 
       n = as.integer(1)
-    }
-  
-  else
+    }  else
     {
       p = as.integer(ncol(x) )
       n = as.integer(nrow(x) )
@@ -76,8 +74,7 @@ dpairbeta<-
   if(vectorial)
       {
         result=as.double(rep(0,n))
-      }
-  else
+      }  else
     {
       result=as.double(0)
     }

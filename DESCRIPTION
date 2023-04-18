@@ -1,8 +1,7 @@
 Package: BMAmevt
 Type: Package
 Title: Multivariate Extremes: Bayesian Estimation of the Spectral Measure
-Version: 1.0.4
-Date: 2019-12-17
+Version: 1.0.5
 Authors@R: c(person(given = "Leo", family = "Belzile", role = "cre", email = "belzilel@gmail.com", comment = c(ORCID = "0000-0002-9135-014X")), person(given = "Anne", family = "Sabourin", role = "aut", email = "anne.sabourin@telecom-paristech.fr", comment = c(ORCID = "0000-0002-5096-9157")))
 Depends: stats, utils, coda
 Description: Toolkit for Bayesian estimation of the dependence structure in multivariate extreme value parametric models, following Sabourin and Naveau (2014) <doi:10.1016/j.csda.2013.04.021> and Sabourin, Naveau and Fougeres (2013) <doi:10.1007/s10687-012-0163-0>.

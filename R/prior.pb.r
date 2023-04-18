@@ -33,11 +33,9 @@ prior.pb <-
         lengthPar <- choose(p,2)+1
        ## res <- matrix(0,ncol=lengthPar, nrow = n)
         alpha <- exp(rnorm(n, mean=Hpar$mean.alpha, sd=Hpar$sd.alpha))
-        beta <-exp( matrix(rnorm(
-                             (lengthPar-1)*n,
-                             mean=Hpar$mean.beta, sd=Hpar$sd.beta),
-                           ncol=3))
-        res <- cbind(alpha,beta )
+        beta <-exp(rnorm((lengthPar-1)*n,
+                             mean=Hpar$mean.beta, sd=Hpar$sd.beta))
+        res <- c(alpha,beta )
         return(res)
       }
     

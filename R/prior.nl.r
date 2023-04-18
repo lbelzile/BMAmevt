@@ -67,13 +67,12 @@ invlogit <-  function (x)
   {
     if(type =="r")
       {
-        
+        stopifnot(dimData == 3)
         alpha <- invlogit(rnorm(n, mean=Hpar$mean.alpha, sd=Hpar$sd.alpha) )
         beta <- invlogit(matrix(rnorm(3*n, mean=Hpar$mean.beta,
                                       sd=Hpar$sd.beta), ncol=3))
-        res <- cbind(alpha,beta )
-        colnames(res) <-  c("alpha","beta12",
-                       "beta13", "beta23")
+        res <- c(alpha,beta )
+        names(res) <-  c("alpha","beta12","beta13", "beta23")
         return(res)
       }
 

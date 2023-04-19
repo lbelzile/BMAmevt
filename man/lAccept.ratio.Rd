@@ -22,7 +22,7 @@ lAccept.ratio(
 
 \item{prop.par}{The candidate parameter}
 
-\item{dat}{An angular data set, \emph{e.g.} constructed by
+\item{dat}{An angular data set, \emph{e.g.}, constructed by
 \code{\link{cons.angular.dat}}: A matrix which rows are the Cartesian coordinates of points on the unit simplex (summing to one).}
 
 \item{likelihood}{The likelihood function.

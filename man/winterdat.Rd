@@ -4,9 +4,11 @@
 \name{winterdat}
 \alias{winterdat}
 \title{Five-dimensional air quality dataset recorded in Leeds(U.K.), during five winter seasons.}
-\format{A \eqn{590*5} matrix.}
+\format{
+A \eqn{590*5} matrix.
+}
 \source{
-\url{http://www.airquality.co.uk}
+\url{https://uk-air.defra.gov.uk/}
 }
 \description{
 Contains 590 daily maxima of five air pollutants

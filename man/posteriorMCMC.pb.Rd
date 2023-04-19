@@ -3,7 +3,7 @@
 \name{posteriorMCMC.nl}
 \alias{posteriorMCMC.nl}
 \alias{posteriorMCMC.pb}
-\title{MC MC posterior samplers for the  the PB and  the NL model.}
+\title{MCMC posterior samplers for the pairwise beta and the negative logistic models.}
 \usage{
 posteriorMCMC.nl(Nsim, dat, Hpar, MCpar, ...)
 
@@ -12,7 +12,7 @@ posteriorMCMC.pb(Nsim, dat, Hpar, MCpar, ...)
 \arguments{
 \item{Nsim}{Total number of iterations to perform.}
 
-\item{dat}{An angular data set, \emph{e.g.} constructed by
+\item{dat}{An angular data set, \emph{e.g.}, constructed by
 \code{\link{cons.angular.dat}}: A matrix which rows are the Cartesian coordinates of points on the unit simplex (summing to one).}
 
 \item{Hpar}{A list containing  Hyper-parameters to be passed to

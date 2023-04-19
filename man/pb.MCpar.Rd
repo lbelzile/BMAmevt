@@ -4,9 +4,11 @@
 \name{pb.MCpar}
 \alias{pb.MCpar}
 \title{Default MCMC tuning parameter for the Pairwise Beta model.}
-\format{A list made of a single element: \code{sd},
+\format{
+A list made of a single element: \code{sd},
 the standard deviation of the normal proposition kernel (on the log-transformed parameter). Default to 
-\eqn{0.35}.}
+\eqn{0.35}.
+}
 \description{
 The proposal for the log-transformed parameters are Gaussian, centered at the current value.
 }

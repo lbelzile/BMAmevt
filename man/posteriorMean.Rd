@@ -6,7 +6,9 @@
 \usage{
 posteriorMean(
   post.sample,
-  FUN = function(par, ...) {     par },
+  FUN = function(par, ...) {
+     par
+ },
   from = NULL,
   to = NULL,
   thin = 50,

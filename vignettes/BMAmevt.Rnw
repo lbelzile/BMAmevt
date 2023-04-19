@@ -84,7 +84,7 @@ This package  is a  `Bayesian Model
 Averaging' (\BMA) toolkit. The main purpose is the estimation of  the
 dependence structure between  the largest values of multivariate
 data, using the probabilistic framework of  Multivariate Extreme
-Value Theory. However, the principal functions implemented here  (MC MC
+Value Theory. However, the principal functions implemented here  (MCMC
 sampler and simple Monte-Carlo sampler for the marginal model
 likelihoods, see below) could be
 used in any other statistical context.  
@@ -117,7 +117,7 @@ This package has been developped to implement the methods proposed in
 % extreme value distributions are provided. 
 The main functions are 
 \begin{itemize}
-\item \verb@posteriorMCMC@: A generic MC MC sampler (Metropolis-Hastings algorithm)  to estimate the posterior
+\item \verb@posteriorMCMC@: A generic MCMC sampler (Metropolis-Hastings algorithm)  to estimate the posterior
 distributions  in individual models,
 \item \verb@marginal.lkl@ : A generic Monte-Carlo sampler to estimate the model likelihoods.
 \end{itemize}

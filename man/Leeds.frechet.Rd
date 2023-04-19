@@ -4,7 +4,9 @@
 \name{Leeds.frechet}
 \alias{Leeds.frechet}
 \title{Multivariate data set with margins following unit Frechet distribution.}
-\format{A \eqn{590*5} - matrix:}
+\format{
+A \eqn{590*5} - matrix:
+}
 \description{
 The data set contains 590 (transformed) daily maxima of five air pollutants recorded in Leeds (U.K.)  during five winter seasons (1994-1998).  Contains NA's. Marginal   transformation to unit Frechet was performed by Cooley   \emph{et.al.} (see reference below).##' \eqn{x=X/||V||}. Thus,
 }

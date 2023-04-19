@@ -4,7 +4,9 @@
 \name{Leeds}
 \alias{Leeds}
 \title{Tri-variate \sQuote{angular} data set approximately distributed according to a multivariate extremes angular distribution}
-\format{A \eqn{100*3} - matrix.}
+\format{
+A \eqn{100*3} - matrix.
+}
 \description{
 The data set is constructed from coordinates (columns) \eqn{1,2,3} of \code{\link{frechetdat}}.
 It contains 100 angular points corresponding to the tri-variate vectors \eqn{V=(X,Y,Z)} with largest \eqn{L^1}{L1} norm (\eqn{||V||=X+Y+Z}). The angular points are obtained by \sQuote{normalizing}: \emph{e.g.},

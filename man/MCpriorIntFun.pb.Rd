@@ -7,7 +7,9 @@
 \usage{
 MCpriorIntFun.nl(
   Nsim = 200,
-  FUN = function(par, ...) {     par },
+  FUN = function(par, ...) {
+     par
+ },
   store = TRUE,
   Hpar = get("nl.Hpar"),
   show.progress = floor(seq(1, Nsim, length.out = 20)),
@@ -20,7 +22,9 @@ MCpriorIntFun.pb(
   Nsim = 200,
   Hpar = get("pb.Hpar"),
   dimData = 3,
-  FUN = function(par, ...) {     as.vector(par) },
+  FUN = function(par, ...) {
+     as.vector(par)
+ },
   store = TRUE,
   show.progress = floor(seq(1, Nsim, length.out = 20)),
   Nsim.min = Nsim,

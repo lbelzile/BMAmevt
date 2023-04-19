@@ -9,7 +9,9 @@ MCpriorIntFun(
   prior,
   Hpar,
   dimData,
-  FUN = function(par, ...) {     as.vector(par) },
+  FUN = function(par, ...) {
+     as.vector(par)
+ },
   store = TRUE,
   show.progress = floor(seq(1, Nsim, length.out = 20)),
   Nsim.min = Nsim,

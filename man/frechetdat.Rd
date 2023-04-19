@@ -5,7 +5,9 @@
 \alias{frechetdat}
 \title{Multivariate data set with margins following unit Frechet
 distribution.}
-\format{A \eqn{601*5} - matrix:}
+\format{
+A \eqn{601*5} - matrix:
+}
 \description{
 Five-variate dataset which margins follow unit-Frechet distributions,
 obtained from \code{\link{winterdat}} by probability integral

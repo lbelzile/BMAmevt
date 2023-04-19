@@ -1,10 +1,10 @@
 ##' Generates a posterior parameters sample, and computes the posterior  mean and component-wise variance on-line.
 ##'
-##' @title MC MC sampler for parametric spectral measures
+##' @title MCMC sampler for parametric spectral measures
 ##' @param Nsim Total number of iterations to perform.
 ##' @param Nbin Length of the burn-in period.
 ##' @param par.start Starting point for the MC MC sampler.
-##' @param dat An angular data set, \emph{e.g.} constructed by
+##' @param dat An angular data set, \emph{e.g.}, constructed by
 ##' \code{\link{cons.angular.dat}}: A matrix which rows are the Cartesian coordinates of points on the unit simplex (summing to one). 
 ##' @param likelihood The likelihood function.
 ##' Should be of type\cr

@@ -2,12 +2,18 @@
 % Please edit documentation in R/posteriorMCMC.r
 \name{posteriorMCMC}
 \alias{posteriorMCMC}
-\title{MC MC sampler for parametric spectral measures}
+\title{MCMC sampler for parametric spectral measures}
 \usage{
 posteriorMCMC(
-  prior = function(type = c("r", "d"), n, par, Hpar, log, dimData) {     NULL },
-  proposal = function(type = c("r", "d"), cur.par, prop.par, MCpar, log) {     NULL },
-  likelihood = function(x, par, log, vectorial) {     NULL },
+  prior = function(type = c("r", "d"), n, par, Hpar, log, dimData) {
+     NULL
+ },
+  proposal = function(type = c("r", "d"), cur.par, prop.par, MCpar, log) {
+     NULL
+ },
+  likelihood = function(x, par, log, vectorial) {
+     NULL
+ },
   Nsim,
   dat,
   Hpar,
@@ -64,7 +70,7 @@ for templates.}
 
 \item{Nsim}{Total number of iterations to perform.}
 
-\item{dat}{An angular data set, \emph{e.g.} constructed by
+\item{dat}{An angular data set, \emph{e.g.}, constructed by
 \code{\link{cons.angular.dat}}: A matrix which rows are the Cartesian coordinates of points on the unit simplex (summing to one).}
 
 \item{Hpar}{A list containing  Hyper-parameters to be passed to

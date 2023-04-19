@@ -2,7 +2,7 @@
 ##'
 ##' The two functions are wrappers simplifying the use of
 ##' \code{\link{posteriorMCMC}} for the two models implemented in this package.
-##' @title MC MC posterior samplers for the  the PB and  the NL model.
+##' @title MCMC posterior samplers for the pairwise beta and the negative logistic models.
 ##' @inheritParams posteriorMCMC
 ##' @param ...  Additional arguments to be passed to
 ##' \code{\link{posteriorMCMC}} instead of their

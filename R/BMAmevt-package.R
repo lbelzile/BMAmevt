@@ -21,7 +21,7 @@ NULL
 ##' @name winterdat
 ##' @docType data
 ##' @format A \eqn{590*5} matrix.
-##' @source \url{http://www.airquality.co.uk}
+##' @source \url{https://uk-air.defra.gov.uk/}
 ##' @keywords datasets
 NULL
 

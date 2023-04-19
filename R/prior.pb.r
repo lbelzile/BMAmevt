@@ -36,7 +36,7 @@ prior.pb <-
         beta <-exp(rnorm((lengthPar-1)*n,
                              mean=Hpar$mean.beta, sd=Hpar$sd.beta))
         res <- c(alpha,beta)
-        names(res) <- c("alpha",paste0("beta", apply(combn(5,2), 2, function(x){paste0(x, collapse = "")})))
+        names(res) <- c("alpha", paste0("beta", apply(combn(p,2), 2, function(x){paste0(x, collapse = "")})))
         return(res)
       }
     

@@ -3,7 +3,7 @@
 ##' @title MCMC sampler for parametric spectral measures
 ##' @param Nsim Total number of iterations to perform.
 ##' @param Nbin Length of the burn-in period.
-##' @param par.start Starting point for the MC MC sampler.
+##' @param par.start Starting point for the MCMC sampler.
 ##' @param dat An angular data set, \emph{e.g.}, constructed by
 ##' \code{\link{cons.angular.dat}}: A matrix which rows are the Cartesian coordinates of points on the unit simplex (summing to one). 
 ##' @param likelihood The likelihood function.
@@ -41,7 +41,7 @@
 ##' See \code{\link{prior.pb}} and \code{\link{prior.nl}} for templates.
 ##' @param Hpar A list containing  Hyper-parameters to be passed to
 ##' \code{prior}.
-##' @param MCpar A list containing  MC MC tuning parameters to be
+##' @param MCpar A list containing  MCMC tuning parameters to be
 ##' passed to \code{proposal}.
 ##' @param show.progress An vector of integers containing the times
 ##' (iteration numbers) at  which a message showing progression

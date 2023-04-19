@@ -76,12 +76,12 @@ for templates.}
 \item{Hpar}{A list containing  Hyper-parameters to be passed to
 \code{prior}.}
 
-\item{MCpar}{A list containing  MC MC tuning parameters to be
+\item{MCpar}{A list containing  MCMC tuning parameters to be
 passed to \code{proposal}.}
 
 \item{Nbin}{Length of the burn-in period.}
 
-\item{par.start}{Starting point for the MC MC sampler.}
+\item{par.start}{Starting point for the MCMC sampler.}
 
 \item{show.progress}{An vector of integers containing the times
 (iteration numbers) at  which a message showing progression

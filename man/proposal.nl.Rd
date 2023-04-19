@@ -19,7 +19,7 @@ proposal.nl(
 
 \item{prop.par}{Candidate parameter.}
 
-\item{MCpar}{A list made of a single element: MC MC parameter. Re-centering parameter for the proposal distribution.}
+\item{MCpar}{A list made of a single element: MCMC parameter. Re-centering parameter for the proposal distribution.}
 
 \item{log}{Logical. Only used when \code{type =="d"}. Should the result be returned on the log-scale ?}
 }
@@ -27,7 +27,7 @@ proposal.nl(
 Either the (log-)density of the proposal parameter \code{prop.par}, given \code{cur.par} (if \code{type == "d"}), or a proposal  parameter (a vector), if \code{type =="r"}.
 }
 \description{
-Density of the proposal distribution \code{q(cur.par,prop.par)} and random generator for MC MC algorithm in the NL3 model.
+Density of the proposal distribution \code{q(cur.par,prop.par)} and random generator for MCMC algorithm in the NL3 model.
 }
 \details{
 The two components of proposal parameter

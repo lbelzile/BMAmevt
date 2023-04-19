@@ -1,7 +1,7 @@
 ##' Logarithm of the acceptance probability
 ##'
 ##' \code{lAccept.ratio} is a functional: \code{likelihood,proposal,prior} are user defined functions. Should not be called directly, but through the MCMC sampler \code{\link{posteriorMCMC}} generating the posterior.
-##' @title Acceptance probability in the MC MC algorithm.
+##' @title Acceptance probability in the MCMC algorithm.
 ##' @param cur.par The current parameter in the Markov chain
 ##' @param prop.par The candidate parameter
 ##' @return The log-acceptance probability.

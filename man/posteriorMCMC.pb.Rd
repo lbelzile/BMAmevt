@@ -18,7 +18,7 @@ posteriorMCMC.pb(Nsim, dat, Hpar, MCpar, ...)
 \item{Hpar}{A list containing  Hyper-parameters to be passed to
 \code{prior}.}
 
-\item{MCpar}{A list containing  MC MC tuning parameters to be
+\item{MCpar}{A list containing  MCMC tuning parameters to be
 passed to \code{proposal}.}
 
 \item{...}{Additional arguments to be passed to

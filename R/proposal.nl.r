@@ -1,4 +1,4 @@
-##' Density of the proposal distribution \code{q(cur.par,prop.par)} and random generator for MC MC algorithm in the NL3 model.
+##' Density of the proposal distribution \code{q(cur.par,prop.par)} and random generator for MCMC algorithm in the NL3 model.
 ##'
 ##' The two components of proposal parameter
 ##' \code{(alpha*, beta12*, beta13*, beta23*)}  are generated independently, under a beta distribution with mode at the current parameter's value. 
@@ -15,7 +15,7 @@
 ##' @param type One of the character strings \code{"r"} or \code{"d"}.
 ##' @param cur.par Current state of the chain.
 ##' @param prop.par Candidate parameter.
-##' @param MCpar A list made of a single element: MC MC parameter. Re-centering parameter for the proposal distribution.
+##' @param MCpar A list made of a single element: MCMC parameter. Re-centering parameter for the proposal distribution.
 ##' @param log Logical. Only used when \code{type =="d"}. Should the result be returned on the log-scale ?
 ##' @return Either the (log-)density of the proposal parameter \code{prop.par}, given \code{cur.par} (if \code{type == "d"}), or a proposal  parameter (a vector), if \code{type =="r"}.
 ##' @export

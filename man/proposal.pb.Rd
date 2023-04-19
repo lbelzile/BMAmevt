@@ -13,7 +13,7 @@ proposal.pb(type = c("r", "d"), cur.par, prop.par, MCpar, log = TRUE)
 
 \item{prop.par}{Candidate parameter}
 
-\item{MCpar}{A list made of a single element: MC MC parameter for the standard deviation of the log-normal proposition, on the log scale. See \code{\link{pb.MCpar}} for the default value}
+\item{MCpar}{A list made of a single element: MCMC parameter for the standard deviation of the log-normal proposition, on the log scale. See \code{\link{pb.MCpar}} for the default value}
 
 \item{log}{Logical. Only used when \code{type =="d"}. Should the result be returned on the log-scale ?}
 }
@@ -21,7 +21,7 @@ proposal.pb(type = c("r", "d"), cur.par, prop.par, MCpar, log = TRUE)
 Either the (log-)density of the proposal \code{prop.par}, given \code{cur.par} (if \code{type == "d"}), or a proposal  parameter (a vector), if \code{type =="r"}.
 }
 \description{
-Density of the proposal distribution \code{q(cur.par,prop.par)} and random generator for MC MC algorithm in the PB model.
+Density of the proposal distribution \code{q(cur.par,prop.par)} and random generator for MCMC algorithm in the PB model.
 }
 \details{
 The components \code{prop.par[i]} of the proposal parameter are generated independently, from the lognormal distribution:

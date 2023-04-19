@@ -1,9 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}% gestion des accents (pour les pdf)
-%\usepackage[english,french]{babel}
-
-\usepackage[english]{babel}
 \usepackage{amsthm, amssymb, amstext}
 \usepackage{natbib}
 \bibliographystyle{plain}
